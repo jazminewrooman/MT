@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MasTicket.administrador" Collapsed="true">
+    <Position X="4.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAQCAAAAgAAAAAAAAAAAEAAAAEAAAAAAAQAI=</HashCode>
+      <FileName>App_Code\administrador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.catPais" Collapsed="true">
+    <Position X="4.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIACAAEAAEAAAAAQAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>App_Code\Catalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.catEstado" Collapsed="true">
+    <Position X="6.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAACAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\Catalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.catMunicipio" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAgAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\Catalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.catOperadora" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAEAAAAAAQAAAAAAAAAAAAAAAgEAAAAAA=</HashCode>
+      <FileName>App_Code\Catalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.catPaquete" Collapsed="true">
+    <Position X="4.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAEAgQAAAAQAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>App_Code\Catalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.catFormasPago" Collapsed="true">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\Catalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.catEmisorTC" Collapsed="true">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAQAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>App_Code\Catalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.Recarga" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgBAAIAQAEABAIEAAQgAAgCAAAABAAAAEgAAggAgA=</HashCode>
+      <FileName>App_Code\Recarga.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.RecargaProg" Collapsed="true">
+    <Position X="1.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\Recarga.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.Tarjeta" Collapsed="true">
+    <Position X="1.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAgAAAYAAAEEAAAAAAAABAAAAEAIACAAAABBABAAAA=</HashCode>
+      <FileName>App_Code\Tarjeta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.RecargaMonedero" Collapsed="true">
+    <Position X="1.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgAAAAAQQEAAAAAAgAAAAgCAAAABAAAAEgAAAAAAA=</HashCode>
+      <FileName>App_Code\Tarjeta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.SaldoMonedero" Collapsed="true">
+    <Position X="6.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAIAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>App_Code\Tarjeta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.Usuario" Collapsed="true">
+    <Position X="1.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAYCEAQAgAAAAgAAAAAAEAAAAEAAAAAAAQCA=</HashCode>
+      <FileName>App_Code\Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Crypto" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAABAAAAAAAAAAAAAAAAAAAAAAAAAQQEA=</HashCode>
+      <FileName>App_Code\Crypto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sac" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEhoAAGEgghAAoCYAAMAAZAAAAAIoCIJgCBEAQAgBgE=</HashCode>
+      <FileName>App_Code\sac.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="StringWriterWithEncoding" Collapsed="true">
+    <Position X="8.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\sac.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GetSessionTags" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAACBAAAAgAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\sac.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AdditionalAmountsType" Collapsed="true">
+    <Position X="10.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>App_Code\sac.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReversePayment" Collapsed="true">
+    <Position X="10.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAIAgACgAEAAAABAAABAAAAAAAAAAAAI=</HashCode>
+      <FileName>App_Code\sac.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChargeSale" Collapsed="true">
+    <Position X="10.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgARQARAIAIIAQggAEACAABAAgJUAAAAAAAAAAAI=</HashCode>
+      <FileName>App_Code\sac.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tresp" Collapsed="true">
+    <Position X="10.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAQAAAAAAQAAAAAAAAABAAAAA=</HashCode>
+      <FileName>App_Code\sac.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="errRecarga" Collapsed="true">
+    <Position X="10.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgBAAAAAAAABAAAAAAAAAACAAAABAAAAAAAAAAAAg=</HashCode>
+      <FileName>App_Code\sac.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wscatalogos" Collapsed="true">
+    <Position X="8.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAAgA=</HashCode>
+      <FileName>App_Code\wscatalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Isac" Collapsed="true">
+    <Position X="8.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAAAAEAAAgAAACAAAIAAQAAAAAIICABgABAAQAgAgA=</HashCode>
+      <FileName>App_Code\Isac.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="TipoRecarga" Collapsed="true">
+    <Position X="1.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>App_Code\sac.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

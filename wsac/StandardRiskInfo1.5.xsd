@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:element name="RiskInformation">
+        <xs:annotation>
+            <xs:documentation>vSafe Risk Information Schema version 1.5</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Transaction" type="TransactionType"/>
+                <xs:element name="Billing" type="BillingType" minOccurs="0"/>
+                <xs:element name="ShoppingCartItems" type="ShoppingCartItemsType" minOccurs="0"/>
+                <xs:element name="CustomMerchantData" type="CustomMerchantDataType" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="1.0"/>
+                        <xs:enumeration value="1.2"/>
+                        <xs:enumeration value="1.4"/>
+                        <xs:enumeration value="1.5"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TransactionType">
+        <xs:sequence>
+            <xs:element name="IsB2BTransaction" type="xs:boolean"/>
+            <xs:element name="IsOneTimePayment" type="xs:boolean"/>
+            <xs:element name="Account" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="AccountID" type="xs:string"/>
+                        <xs:element name="LoyaltyProgramID" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Email" type="xs:string" minOccurs="0"/>
+                        <xs:element name="MobilePhoneNumber" type="PhoneNumberType" minOccurs="0"/>
+                        <xs:element name="WorkPhoneNumber" type="PhoneNumberType" minOccurs="0"/>
+                        <xs:element name="CreatedDTM" type="DateTimeType"/>
+                        <xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+                        <xs:element name="LastName" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Address" type="AddressType" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="DOB" type="xs:date" minOccurs="0"/>
+                        <xs:element name="SocialNetwork" type="SocialNetworkType" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="HasNegativeHistory" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Authentication">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="IsAuthenticated" type="xs:boolean"/>
+                        <xs:element name="AuthenticationMethod" minOccurs="0">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Password"/>
+                                    <xs:enumeration value="PIN"/>
+                                    <xs:enumeration value="OAuth"/>
+                                    <xs:enumeration value="Other"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="LoginID" type="xs:string" minOccurs="0"/>
+                        <xs:element name="SocialNetwork" type="SocialNetworkType" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Channel">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ChannelCode">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Web"/>
+                                    <xs:enumeration value="IVR"/>
+                                    <xs:enumeration value="Store"/>
+                                    <xs:enumeration value="Mobile"/>
+                                    <xs:enumeration value="SMS"/>
+                                    <xs:enumeration value="Other"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="ANI" type="PhoneNumberType" minOccurs="0"/>
+                        <xs:element name="IPAddress" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Promotion" minOccurs="0" maxOccurs="unbounded" type="PromotionType">
+            </xs:element>
+            <xs:element name="MoneyTransfer" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ExchangeRate" type="xs:decimal" minOccurs="0"/>
+                        <xs:element name="SendAmount" type="xs:decimal"/>
+                        <xs:element name="SendCurrency" type="xs:string"/>
+                        <xs:element name="ReceiveAmount" type="xs:decimal"/>
+                        <xs:element name="ReceiveCurrency" type="xs:string"/>
+                        <xs:element name="Payout" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Country" type="xs:string"/>
+                                    <xs:element name="State" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="City" type="xs:string"/>
+                                    <xs:element name="PostalCode" type="xs:string" minOccurs="0"/>
+                                </xs:sequence>
+
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+
+            </xs:element>
+            <xs:element name="TimeStamp" type="DateTimeType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="BillingType">
+        <xs:sequence>
+            <xs:element name="Email" type="xs:string" minOccurs="0"/>
+            <xs:element name="ContactPhoneNumber" type="PhoneNumberType" minOccurs="0"/>
+            <xs:element name="BankPhoneNumber" type="PhoneNumberType" minOccurs="0"/>
+            <xs:element name="PaymentDeviceCreatedDtm" type="DateTimeType" minOccurs="0"/>
+            <xs:element name="PaymentDeviceOwnerDOB" type="xs:date" minOccurs="0"/>
+            <xs:element name="HasNegativeHistory" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ShoppingCartItemsType">
+        <xs:sequence>
+            <xs:element name="ShoppingCartItem" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="DeliveryMethod">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Email"/>
+                                    <xs:enumeration value="PhysicalShipping"/>
+                                    <xs:enumeration value="Reload"/>
+                                    <xs:enumeration value="DigitalDownload"/>
+                                    <xs:enumeration value="MoneyTransfer"/>
+                                    <xs:enumeration value="Other"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="DeliveryRecipient">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Company" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="AccountID" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="AccountCreatedDate" type="xs:dateTime" minOccurs="0"/>
+                                    <xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="LastName" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="Address" type="AddressType" minOccurs="0"/>
+                                    <xs:element name="Email" type="xs:string" minOccurs="0"/>
+                                    <xs:element name="PhoneNumber" type="PhoneNumberType" minOccurs="0"/>
+                                    <xs:element name="StoredValueAccountID" type="xs:string" minOccurs="0"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Fees" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Fee" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="Amount" type="xs:decimal"/>
+                                                <xs:element name="FeeType" maxOccurs="unbounded">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:enumeration value="ShippingCost"/>
+                                                            <xs:enumeration value="MessageCost"/>
+                                                            <xs:enumeration value="Other"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="count" type="xs:positiveInteger"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="GiftingMessage" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="From" type="xs:string">
+                                    </xs:element>
+                                    <xs:element name="To" type="xs:string">
+                                    </xs:element>
+                                    <xs:element name="Text" type="xs:string">
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="LineItems" type="LineItemsType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="count" type="xs:positiveInteger"/>
+    </xs:complexType>
+    <xs:complexType name="CustomMerchantDataType">
+        <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax">
+                <xs:annotation>
+                    <xs:documentation>Reserved for custom processing per partner. Replace this section if you received custom merchant data code</xs:documentation>
+                </xs:annotation>
+            </xs:any>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LineItemsType">
+        <xs:sequence>
+            <xs:element name="LineItem" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ProductCode" type="xs:string"/>
+                        <xs:element name="ProductDescription" type="xs:string"/>
+                        <xs:element name="UnitPrice" type="xs:decimal"/>
+                        <xs:element name="Quantity" type="xs:integer"/>
+                        <xs:element name="Promotion" minOccurs="0" type="PromotionType">
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="count" type="xs:positiveInteger"/>
+    </xs:complexType>
+    <xs:complexType name="AddressType">
+        <xs:sequence>
+            <xs:element name="AddressLine1" type="xs:string"/>
+            <xs:element name="AddressLine2" type="xs:string" minOccurs="0"/>
+            <xs:element name="City" type="xs:string">
+            </xs:element>
+            <xs:element name="State" type="xs:string" minOccurs="0"/>
+            <xs:element name="PostalCode" type="xs:string"/>
+            <xs:element name="CountryCode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="2"/>
+                        <xs:maxLength value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="PhoneNumberType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{15}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="SocialNetworkType">
+        <xs:sequence>
+            <xs:element name="Platform">
+                <xs:simpleType>
+
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Facebook"/>
+                        <xs:enumeration value="GooglePlus"/>
+                        <xs:enumeration value="Twitter"/>
+                        <xs:enumeration value="Other"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="AccountID" type="xs:string"/>
+            <xs:element name="AccountEmail" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PromotionType">
+        <xs:sequence>
+            <xs:element name="Code" type="xs:string"/>
+            <xs:element name="Description" type="xs:string"/>
+            <xs:element name="Discount" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="DateTimeType">
+        <xs:restriction base="xs:dateTime">
+          <xs:pattern value=".+T.+(Z|[+-].+)"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

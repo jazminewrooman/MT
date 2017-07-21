@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+			 xmlns:local="clr-namespace:MasTicket;"
+             x:Class="MasTicket.InfoAyuda">
+        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,10,10,10">
+            <StackLayout BackgroundColor="White" Padding="0, 0, 0, 0">
+
+            <Grid Style="{DynamicResource GridHeaderInfo}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" x:Name="lblTitulo" Text="Ayuda" Style="{DynamicResource LabelHeaderInfo}" />
+            </Grid>
+
+            <StackLayout Padding="0,0,0,10" BackgroundColor="#fdfdfd">
+                <!--<Label Text="Selecciona algun contacto para recargar de la lista..." />
+		  <Image Source="seleccionacontacto.png" Aspect="AspectFit"/>
+          <Label Text="...o captura el numero." />
+		  <Image Source="numeroaqui.png" Aspect="AspectFit"/>
+          <Label Text="Tambien puedes buscar contactos en el cuadro correspondiente" />-->
+
+                <WebView x:Name="wv" />
+
+                <Grid VerticalOptions="EndAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70*" />
+                        <ColumnDefinition Width="30*" />
+                    </Grid.ColumnDefinitions>
+                    <local:MTButton Grid.Column="1" Grid.Row="0" Clicked="OnClose" Text="OK" Style="{DynamicResource ButtonOkInfo}" />
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+        </StackLayout>
+</pages:PopupPage>

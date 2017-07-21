@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:local="clr-namespace:MasTicket;"
+		x:Class="MasTicket.HistoricosWallet">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <local:StatusRecConverter x:Key="statusconv"></local:StatusRecConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <ContentPage.Content>
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+      <Grid Padding="5,5,5,5" Style="{DynamicResource GridFondoRojo}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="35*"/>
+          <ColumnDefinition Width="25*"/>
+          <ColumnDefinition Width="20*"/>
+		  <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        <Label Style="{DynamicResource LblCSDescW}" Grid.Row="0" Grid.Column="0" Text="Autorización" />
+        <Label Style="{DynamicResource LblCSDescW}" Grid.Row="0" Grid.Column="1" Text="Fecha" />
+        <Label Style="{DynamicResource LblCSDescW}" Grid.Row="0" Grid.Column="2" Text="Monto" />
+        <Label Style="{DynamicResource LblCSDescW}" Grid.Row="0" Grid.Column="3" Text="Status" />
+      </Grid>
+
+      <ListView x:Name="lvHistoricos" HasUnevenRows="True" SeparatorColor="Black">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+                <StackLayout Padding="5,5,5,5" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                  <Grid VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                      <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="35*"/>
+                      <ColumnDefinition Width="25*"/>
+                      <ColumnDefinition Width="20*"/>
+					  <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Style="{DynamicResource LblCSTituloRojo}" Grid.Row="0" Grid.Column="0" Text="{Binding PaymentID}" />
+                    <Label Style="{DynamicResource LblCSDesc}" Grid.Row="0" Grid.Column="1" Text="{Binding fecha, StringFormat='{}{0:dd/MMM/yyyy}'}" />
+                    <Label Style="{DynamicResource LblCSDesc}" Grid.Row="0" Grid.Column="2" Text="{Binding monto, StringFormat='{}{0:c}'}" />
+                    <Label Style="{DynamicResource LblCSDesc}" Grid.Row="0" Grid.Column="3" Text="{Binding err, Converter={StaticResource statusconv}}" />                  
+                  </Grid>
+                </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    
+    </StackLayout>
+  </ContentPage.Content>
+	
+</ContentPage>

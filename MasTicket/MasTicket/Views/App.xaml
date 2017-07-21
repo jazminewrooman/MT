@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:plugin="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+		     xmlns:local="clr-namespace:MasTicket;"
+             x:Class="MasTicket.App">
+  <Application.Resources>
+    <ResourceDictionary>
+      
+      <!--  2/Jun/16-->
+      <!--  morado #543192  -->
+      <!--  naranja #e64629 -->
+      <!--  27/Jul/16-->
+      <!--  morado #553191  -->
+      <!--  naranja #e35102 -->
+      
+      <Style x:Key="srcBar" TargetType="SearchBar">
+        <!--<Setter Property="BackgroundColor" Value="Transparent" />-->
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="CancelButtonColor" Value="#e35102" />
+        <!--<Setter Property="PlaceholderColor" Value="White" />-->
+      </Style>      
+      
+      <Style x:Key="ImgRegistro" TargetType="plugin:CircleImage">
+        <Setter Property="HeightRequest" Value="70" />
+        <Setter Property="WidthRequest" Value="70" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderColor" Value="#553191" />
+        <Setter Property="Aspect" Value="AspectFill" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+      </Style>
+      <Style x:Key="ImgMenu" TargetType="plugin:CircleImage">
+        <Setter Property="HeightRequest" Value="30" />
+        <Setter Property="WidthRequest" Value="30" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderColor" Value="#553191" />
+        <Setter Property="Aspect" Value="AspectFill" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+      </Style>
+      <Style x:Key="ImgContacto" TargetType="plugin:CircleImage">
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="WidthRequest" Value="40" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderColor" Value="#553191" />
+        <Setter Property="Aspect" Value="AspectFill" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+      </Style>
+      <!-- ////////////////////////   validadores   ////////////////////////// -->
+      <Style x:Key="EntryInvalido" TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="Red" />
+        <Setter Property="TextColor" Value="White" />
+      </Style>
+      <Style x:Key="EntryValido" TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="Default" />
+        <Setter Property="TextColor" Value="Default" />
+      </Style>
+      <Style x:Key="LabelErrorEntry" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="Micro" />
+        <Setter Property="FontAttributes" Value="Italic" />
+        <Setter Property="TextColor" Value="Red" />
+      </Style>
+      
+      <Style x:Key="NavigationPage" TargetType="NavigationPage">
+        <Setter Property="BarBackgroundColor" Value="#e35102" />
+        <Setter Property="BarTextColor" Value="White" />
+        <Setter Property="Icon" Value="logo.png" />
+      </Style>
+      <Style x:Key="StackHeader" TargetType="StackLayout">
+        <Setter Property="BackgroundColor" Value="#fadad4" />
+      </Style>
+      <Style x:Key="StackHeaderM" TargetType="StackLayout">
+        <Setter Property="BackgroundColor" Value="#553191" />
+      </Style>
+      <Style x:Key="StackFondoRojo" TargetType="StackLayout">
+        <Setter Property="BackgroundColor" Value="#e35102" />
+      </Style>
+      <Style x:Key="StackFondoMorado" TargetType="StackLayout">
+        <Setter Property="BackgroundColor" Value="#553191" />
+      </Style>
+      <Style x:Key="StackBoton" TargetType="StackLayout">
+        <Setter Property="Padding" Value="10,10,10,10" />
+		<Setter Property="Orientation" Value="Vertical" />
+		<Setter Property="Spacing" Value="0" />
+		<Setter Property="HorizontalOptions" Value="FillAndExpand" />
+      </Style>
+			
+      <Style x:Key="GridHeaderInfo" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="#553191" />
+        <Setter Property="Padding" Value="10, 10, 0, 10" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+      </Style>
+      <Style x:Key="LabelHeaderInfo" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="FontFamily" Value="SegoeUI" />
+      </Style>
+      <Style x:Key="ButtonOkInfo" TargetType="local:MTButton">
+        <Setter Property="TextColor" Value="#553191" />
+        <Setter Property="BorderWidth" Value="0" />
+        <Setter Property="BorderRadius" Value="0" />
+        <Setter Property="BackgroundColor" Value="#fdfdfd" />
+      </Style>
+      <Style x:Key="MiniButtonOkInfo" TargetType="local:MTButton">
+        <Setter Property="TextColor" Value="#553191" />
+        <Setter Property="BorderWidth" Value="0" />
+        <Setter Property="BorderRadius" Value="0" />
+		<Setter Property="HeightRequest" Value="30" />
+		<Setter Property="FontSize" Value="12" />
+        <Setter Property="BackgroundColor" Value="#fdfdfd" />
+      </Style>
+      
+      <Style x:Key="GridFondoRojo" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="#e35102" />
+      </Style>
+      <Style x:Key="GridFondoMorado" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="#553191" />
+      </Style>
+
+      <Style x:Key="ImgButtonBlancoRojo" TargetType="local:ImageButton">
+        <Setter Property="ButtonBackgroundColor" Value="#ed7d69" />
+        <!--<Setter Property="ButtonTextColor" Value="#e35102" />-->
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="VerticalOptions" Value="Center" />
+		    <Setter Property="HeightRequest" Value="40" />
+      </Style>
+      <Style x:Key="ImgButtonRojo" TargetType="local:ImageButton">
+        <Setter Property="ButtonBackgroundColor" Value="#ed7d69" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="VerticalOptions" Value="Center" />
+		<Setter Property="HeightRequest" Value="40" />
+      </Style>
+	  <Style x:Key="OpcButton" TargetType="local:OpcionButton">
+        <Setter Property="ButtonBackgroundColor" Value="Transparent" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="VerticalOptions" Value="Center" />
+		<Setter Property="HeightRequest" Value="40" />
+      </Style>
+      <Style x:Key="ImgButtonVerde" TargetType="local:ImageButton">
+        <Setter Property="ButtonBackgroundColor" Value="#8BC34A" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="VerticalOptions" Value="Center" />
+		<Setter Property="HeightRequest" Value="40" />
+      </Style>
+	  <Style x:Key="ButtonVerde" TargetType="local:MTButton">
+        <Setter Property="BackgroundColor" Value="#8BC34A" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+		<Setter Property="HeightRequest" Value="40" />
+		<Setter Property="TextColor" Value="White" />
+      </Style>			
+      <Style x:Key="ButtonRojo" TargetType="local:MTButton">
+        <Setter Property="BackgroundColor" Value="#ed7d69" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="HeightRequest" Value="40" />
+     </Style>
+      <Style x:Key="ButtonCancel" TargetType="local:MTButton">
+        <Setter Property="BackgroundColor" Value="#553191" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="HeightRequest" Value="40" />
+      </Style>
+      <Style x:Key="ButtonBlancoRojo" TargetType="local:MTButton">
+        <Setter Property="BackgroundColor" Value="#ed7d69" />
+        <Setter Property="BorderColor" Value="#e35102" />
+        <Setter Property="TextColor" Value="#e35102" />
+        <Setter Property="BorderWidth" Value="0" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+		    <Setter Property="BorderRadius" Value="5" />
+        <Setter Property="HeightRequest" Value="40" />
+      </Style>
+      <Style x:Key="ButtonMorado" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#553191" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BorderRadius" Value="20" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="WidthRequest" Value="40" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+      </Style>
+      
+      <Style x:Key="BoxVCS" TargetType="BoxView">
+        <Setter Property="BackgroundColor" Value="#e35102" />
+      </Style>
+
+       <Style x:Key="LblOrden" TargetType="Label">
+        <Setter Property="FontFamily" Value="SegoeUI" />
+        <Setter Property="TextColor" Value="#e35102" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+      </Style>
+      <Style x:Key="LblOrdenDet" TargetType="Label">
+        <Setter Property="FontFamily" Value="SegoeUI" />
+        <Setter Property="TextColor" Value="#666" />
+        <Setter Property="FontAttributes" Value="None" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+      </Style>
+      <Style x:Key="LblOrdenDet2" TargetType="Label">
+        <Setter Property="FontFamily" Value="SegoeUI" />
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="FontAttributes" Value="None" />
+        <Setter Property="FontSize" Value="26" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+      </Style>
+
+      <OnPlatform x:TypeArguments="x:Double" Android="14" iOS="12" WinPhone="14" x:Key="LblContactoSize" />
+      <Style x:Key="LblContacto" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource LblContactoSize}" />
+        <Setter Property="TextColor" Value="#e35102" />
+      </Style>
+      <OnPlatform x:TypeArguments="x:Double" Android="16" iOS="14" WinPhone="16" x:Key="LblCSTituloSize" />
+      <Style x:Key="LblCSTituloRojo" TargetType="Label">
+        <Setter Property="FontFamily" Value="SegoeUI" />
+        <Setter Property="FontAttributes" Value="None" />
+        <Setter Property="FontSize" Value="{DynamicResource LblCSTituloSize}" />
+        <Setter Property="TextColor" Value="#e35102" />
+      </Style>
+      <Style x:Key="LblCSTitulo" TargetType="Label">
+        <Setter Property="FontFamily" Value="SegoeUI" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="{DynamicResource LblCSTituloSize}" />
+        <Setter Property="TextColor" Value="#333" />
+		<Setter Property="VerticalTextAlignment" Value="Center" />
+      </Style>
+      <!-- ////////////////////////////////////////////// -->
+      <OnPlatform x:TypeArguments="x:Double" Android="12" iOS="10" WinPhone="12" x:Key="LblCSDescSize" />
+      <Style x:Key="LblCSDesc" TargetType="Label">
+        <Setter Property="FontFamily" Value="SegoeUI" />
+        <Setter Property="FontAttributes" Value="None" />
+        <Setter Property="FontSize" Value="{DynamicResource LblCSDescSize}" />
+        <Setter Property="TextColor" Value="#333" />
+		<Setter Property="VerticalTextAlignment" Value="Center" />
+      </Style>
+      <Style x:Key="LblCSDescRojo" TargetType="Label">
+        <Setter Property="FontFamily" Value="SegoeUI" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="{DynamicResource LblCSDescSize}" />
+        <Setter Property="TextColor" Value="#e35102" />
+		<Setter Property="VerticalTextAlignment" Value="Center" />
+      </Style>
+      <!-- ////////////////////////////////////////////// -->
+      <Style x:Key="LblCSDescW" TargetType="Label">
+        <Setter Property="FontFamily" Value="SegoeUI" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextColor" Value="White" />
+      </Style>
+      
+      <OnPlatform x:TypeArguments="x:Double" Android="18" iOS="14" WinPhone="18" x:Key="LblCSTituloWSize" />
+      <Style x:Key="LblCSTituloW" TargetType="Label">
+        <Setter Property="FontFamily" Value="SegoeUI" />
+        <Setter Property="FontAttributes" Value="None" />
+        <Setter Property="FontSize" Value="{DynamicResource LblCSTituloWSize}" />
+        <Setter Property="TextColor" Value="White" />
+      </Style>
+      
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

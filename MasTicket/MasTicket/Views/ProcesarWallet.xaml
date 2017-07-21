@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasTicket.ProcesarWallet">
+  <ContentPage.Content>
+    <StackLayout x:Name="slMain">
+      <StackLayout Padding="5,5,5,5" Style="{DynamicResource StackHeader}">
+        <Image Source="masticket.png"/>
+      </StackLayout>
+      <ScrollView VerticalOptions="FillAndExpand">
+        <Grid VerticalOptions="FillAndExpand">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+
+          <StackLayout Grid.Row="0" Grid.ColumnSpan="3" Padding="10,10,10,10" Style="{DynamicResource StackFondoRojo}">
+            <Label FontAttributes="Bold" FontSize="Small" VerticalTextAlignment="Center" Text="Recarga" TextColor="White" />
+          </StackLayout>
+          <Label Grid.Row="4" Grid.Column="1" Text="Monto:" Style="{DynamicResource LblOrden}" />
+          <Label Grid.Row="4" Grid.Column="2" Text="$100.00" Style="{DynamicResource LblOrdenDet}" />
+          <Label Grid.Row="5" Grid.Column="1" Text="Concepto:" Style="{DynamicResource LblOrden}" />
+          <Label Grid.Row="5" Grid.Column="2" Text="Recarga de monedero" Style="{DynamicResource LblOrdenDet}" />
+
+          <StackLayout Grid.Row="6" Grid.ColumnSpan="3" Padding="10,10,10,10" Style="{DynamicResource StackFondoRojo}">
+            <Label FontAttributes="Bold" FontSize="Small" VerticalTextAlignment="Center" Text="Pago" TextColor="White" />
+          </StackLayout>
+          <Label Grid.Row="7" Grid.Column="1" Text="Tipo:" Style="{DynamicResource LblOrden}" />
+          <Label Grid.Row="7" Grid.Column="2" Text="Tarjeta" Style="{DynamicResource LblOrdenDet}" />
+          <Label Grid.Row="8" Grid.Column="1" Text="Emisor:" Style="{DynamicResource LblOrden}" />
+          <Label Grid.Row="8" Grid.Column="2" Text="AMEX" Style="{DynamicResource LblOrdenDet}" />
+          <Label Grid.Row="9" Grid.Column="1" Text="Numero:" Style="{DynamicResource LblOrden}" />
+          <Label Grid.Row="9" Grid.Column="2" Text="0133" Style="{DynamicResource LblOrdenDet}" />
+          <Label Grid.Row="10" Grid.Column="1" Text="Titular:" Style="{DynamicResource LblOrden}" />
+          <Label Grid.Row="10" Grid.Column="2" Text="Marco Sero" Style="{DynamicResource LblOrdenDet}" />
+
+
+
+        </Grid>
+      </ScrollView>
+
+      <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="FillAndExpand">
+        <Button x:Name="btnProcesar" Text="Procesar" Style="{DynamicResource ButtonRojo}"/>
+      </StackLayout>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

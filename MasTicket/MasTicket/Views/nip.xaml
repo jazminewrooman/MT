@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasTicket.nip">
+	<ContentPage.Content>
+
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+
+      <!--<StackLayout Grid.Column="0" Grid.Row="0" x:Name="slImg" Padding="5,5,5,5" Style="{DynamicResource StackHeader}">
+            <Image Source="masticket.png"/>
+          </StackLayout>-->
+      <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+         <Label HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" Text="Introduzca su nip"/>
+         <Grid x:Name="grdBtns" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="Auto"/>
+              </Grid.ColumnDefinitions>
+              <Entry Grid.Row="0" Grid.Column="2" x:Name="txtNip" TextColor="Black" FontAttributes="Bold" FontSize="Large" IsPassword="True" IsEnabled="False" Text="{Binding CambioNip}" />
+              <Button Grid.Row="1" Grid.Column="1" Text="1" Command="{Binding ClickedCommand}" CommandParameter="1" Style="{DynamicResource ButtonMorado}" />
+              <Button Grid.Row="1" Grid.Column="2" Text="2" Command="{Binding ClickedCommand}" CommandParameter="2" Style="{DynamicResource ButtonMorado}" />
+              <Button Grid.Row="1" Grid.Column="3" Text="3" Command="{Binding ClickedCommand}" CommandParameter="3" Style="{DynamicResource ButtonMorado}" />
+              <Button Grid.Row="2" Grid.Column="1" Text="4" Command="{Binding ClickedCommand}" CommandParameter="4" Style="{DynamicResource ButtonMorado}" />
+              <Button Grid.Row="2" Grid.Column="2" Text="5" Command="{Binding ClickedCommand}" CommandParameter="5" Style="{DynamicResource ButtonMorado}" />
+              <Button Grid.Row="2" Grid.Column="3" Text="6" Command="{Binding ClickedCommand}" CommandParameter="6" Style="{DynamicResource ButtonMorado}" />
+              <Button Grid.Row="3" Grid.Column="1" Text="7" Command="{Binding ClickedCommand}" CommandParameter="7" Style="{DynamicResource ButtonMorado}" />
+              <Button Grid.Row="3" Grid.Column="2" Text="8" Command="{Binding ClickedCommand}" CommandParameter="8" Style="{DynamicResource ButtonMorado}" />
+              <Button Grid.Row="3" Grid.Column="3" Text="9" Command="{Binding ClickedCommand}" CommandParameter="9" Style="{DynamicResource ButtonMorado}" />
+              <Button Grid.Row="4" Grid.Column="2" Text="0" Command="{Binding ClickedCommand}" CommandParameter="0" Style="{DynamicResource ButtonMorado}" />
+            </Grid>
+      </StackLayout>
+      
+      <StackLayout Style="{DynamicResource StackBoton}">
+          <Button x:Name="btnCancel" BorderRadius="0" HorizontalOptions="FillAndExpand" Text="Cancelar" Style="{DynamicResource ButtonRojo}"/>
+      </StackLayout>
+
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

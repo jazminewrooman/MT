@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:MasTicket;"
+		x:Class="MasTicket.Miperfil" Title="Mi Perfil">
+<ContentPage.Content>
+	<StackLayout>
+	<local:VwProfile x:Name="cvwPerfil" />
+	<ScrollView VerticalOptions="FillAndExpand">
+		<Grid RowSpacing="0" ColumnSpacing="0">
+			<Grid.RowDefinitions>
+		    	<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+	      	</Grid.RowDefinitions>
+					
+		    <!--<Grid x:Name="grdMedios" Grid.Row="0" Padding="0,2,0,2">
+		        <Grid.RowDefinitions>
+		        	<RowDefinition Height="Auto"/>
+		        </Grid.RowDefinitions>
+		        <Grid.ColumnDefinitions>
+		        	<ColumnDefinition Width="3"/>
+		            <ColumnDefinition Width="Auto"/>
+		            <ColumnDefinition Width="*"/>
+		            <ColumnDefinition Width="8"/>
+		            <ColumnDefinition Width="2"/>
+		        </Grid.ColumnDefinitions>
+
+                <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+                <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+                  <Image HeightRequest="30" WidthRequest="30" Source="creditcard.png" VerticalOptions="Center" Aspect="AspectFill" />
+                </StackLayout>
+                <StackLayout Grid.Column="2" VerticalOptions="Center">
+                  <Label Text="Medios de pago" Style="{DynamicResource LblCSTitulo}"/>
+                  <Label Text="Puedes añadir nuevas tarjetas o borrar las que tienes" Style="{DynamicResource LblCSDesc}"/>
+                </StackLayout>
+                <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+            </Grid>-->
+
+		    <Grid x:Name="grdMonedero" Grid.Row="1" Padding="0,2,0,2">
+		        <Grid.RowDefinitions>
+		        	<RowDefinition Height="Auto"/>
+		        </Grid.RowDefinitions>
+		        <Grid.ColumnDefinitions>
+		        	<ColumnDefinition Width="3"/>
+		            <ColumnDefinition Width="Auto"/>
+		            <ColumnDefinition Width="*"/>
+		            <ColumnDefinition Width="8"/>
+		            <ColumnDefinition Width="2"/>
+		        </Grid.ColumnDefinitions>
+
+                <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+                <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+                  <Image HeightRequest="30" WidthRequest="30" Source="wallet.png" VerticalOptions="Center" Aspect="AspectFill" />
+                </StackLayout>
+                <StackLayout Grid.Column="2" VerticalOptions="Center">
+                  <Label Text="Monedero" Style="{DynamicResource LblCSTitulo}"/>
+                  <Label Text="Puedes recargar dinero virtual" Style="{DynamicResource LblCSDesc}"/>
+                </StackLayout>
+                <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+            </Grid>
+
+		    <Grid x:Name="grdChat" Grid.Row="2" Padding="0,2,0,2">
+		        <Grid.RowDefinitions>
+		        	<RowDefinition Height="Auto"/>
+		        </Grid.RowDefinitions>
+		        <Grid.ColumnDefinitions>
+		        	<ColumnDefinition Width="3"/>
+		            <ColumnDefinition Width="Auto"/>
+		            <ColumnDefinition Width="*"/>
+		            <ColumnDefinition Width="8"/>
+		            <ColumnDefinition Width="2"/>
+		        </Grid.ColumnDefinitions>
+
+                <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+                <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+                  <Image HeightRequest="30" WidthRequest="30" Source="comments.png" VerticalOptions="Center" Aspect="AspectFill" />
+                </StackLayout>
+                <StackLayout Grid.Column="2" VerticalOptions="Center">
+                  <Label Text="Chat" Style="{DynamicResource LblCSTitulo}"/>
+                  <Label Text="Puedes pedir ayuda inmediata con nuestros operadores" Style="{DynamicResource LblCSDesc}"/>
+                </StackLayout>
+                <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+            </Grid>
+
+		    <Grid x:Name="grdTuto" Grid.Row="3" Padding="0,2,0,2">
+		        <Grid.RowDefinitions>
+		        	<RowDefinition Height="Auto"/>
+		        </Grid.RowDefinitions>
+		        <Grid.ColumnDefinitions>
+		        	<ColumnDefinition Width="3"/>
+		            <ColumnDefinition Width="Auto"/>
+		            <ColumnDefinition Width="*"/>
+		            <ColumnDefinition Width="8"/>
+		            <ColumnDefinition Width="2"/>
+		        </Grid.ColumnDefinitions>
+
+                <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+                <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+                  <Image HeightRequest="30" WidthRequest="30" Source="box3d.png" VerticalOptions="Center" Aspect="AspectFill" />
+                </StackLayout>
+                <StackLayout Grid.Column="2" VerticalOptions="Center">
+                  <Label Text="Introducción" Style="{DynamicResource LblCSTitulo}"/>
+                  <Label Text="Puedes volver a ver la introducción" Style="{DynamicResource LblCSDesc}"/>
+                </StackLayout>
+                <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+            </Grid>
+
+		    <Grid x:Name="grdPolitica" Grid.Row="4" Padding="0,2,0,2">
+		        <Grid.RowDefinitions>
+		        	<RowDefinition Height="Auto"/>
+		        </Grid.RowDefinitions>
+		        <Grid.ColumnDefinitions>
+		        	<ColumnDefinition Width="3"/>
+		            <ColumnDefinition Width="Auto"/>
+		            <ColumnDefinition Width="*"/>
+		            <ColumnDefinition Width="8"/>
+		            <ColumnDefinition Width="2"/>
+		        </Grid.ColumnDefinitions>
+
+                <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+                <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+                  <Image HeightRequest="30" WidthRequest="30" Source="document.png" VerticalOptions="Center" Aspect="AspectFill" />
+                </StackLayout>
+                <StackLayout Grid.Column="2" VerticalOptions="Center">
+                  <Label Text="Política" Style="{DynamicResource LblCSTitulo}"/>
+                  <Label Text="Nuestra política de privacidad" Style="{DynamicResource LblCSDesc}"/>
+                </StackLayout>
+                <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+            </Grid>
+
+		    <Grid x:Name="grdTerminos" Grid.Row="5" Padding="0,2,0,2">
+		        <Grid.RowDefinitions>
+		        	<RowDefinition Height="Auto"/>
+		        </Grid.RowDefinitions>
+		        <Grid.ColumnDefinitions>
+		        	<ColumnDefinition Width="3"/>
+		            <ColumnDefinition Width="Auto"/>
+		            <ColumnDefinition Width="*"/>
+		            <ColumnDefinition Width="8"/>
+		            <ColumnDefinition Width="2"/>
+		        </Grid.ColumnDefinitions>
+
+                <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+                <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+                  <Image HeightRequest="30" WidthRequest="30" Source="document.png" VerticalOptions="Center" Aspect="AspectFill" />
+                </StackLayout>
+                <StackLayout Grid.Column="2" VerticalOptions="Center">
+                  <Label Text="Términos" Style="{DynamicResource LblCSTitulo}"/>
+                  <Label Text="Nuestros términos y condiciones" Style="{DynamicResource LblCSDesc}"/>
+                </StackLayout>
+                <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+            </Grid>
+					
+    	</Grid>
+	</ScrollView>
+	</StackLayout>
+
+</ContentPage.Content>
+</ContentPage>

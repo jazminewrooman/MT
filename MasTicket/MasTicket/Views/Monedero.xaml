@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasTicket.Monedero"
+             xmlns:local="clr-namespace:MasTicket;"
+             >
+  <ContentPage.Content>
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+      <!--<StackLayout Padding="5,5,5,5" Style="{DynamicResource StackHeader}">
+        <Image Source="masticket.png"/>
+      </StackLayout>-->
+      <StackLayout Padding="10,10,10,10" Style="{DynamicResource StackFondoRojo}">
+        <Label Style="{DynamicResource LblOrdenDet2}" Text="Saldo: $50.00"/>
+        <Entry Text="" Placeholder="Monto a recargar" Keyboard="Numeric" />
+      </StackLayout>
+
+      <ListView x:Name="lvRegPagos" HasUnevenRows="True" IsGroupingEnabled="True" ItemsSource="{Binding grptipos}">
+        <ListView.GroupHeaderTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Padding="15,0,15,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Style="{DynamicResource StackFondoRojo}">
+                <Grid HorizontalOptions="FillAndExpand" Style="{DynamicResource GridFondoRojo}" >
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                  </Grid.ColumnDefinitions>
+                  <Label Grid.Column="0" VerticalTextAlignment="Center" Text="{Binding Name}" HorizontalOptions="FillAndExpand" Style="{DynamicResource LblCSTituloW}" />
+                  <local:ImageButton Grid.Column="1" IsVisible="{Binding Tipo, Converter={StaticResource tarjetacnv}}" Clicked="AgregarNuevaT" Text="Agregar" Source="addw.png" Style="{DynamicResource ImgButtonBlancoRojo}" />
+                </Grid>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid>
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="32"/>
+                </Grid.RowDefinitions>
+                <StackLayout IsVisible="{Binding idtipo, Converter={StaticResource saldocnv}}" Padding="5,5,5,5" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding tipo}" Style="{DynamicResource LblCSDesc}" />
+                    <Label Text="{Binding saldo, StringFormat='{}{0:c}'}"  Style="{DynamicResource LblCSDesc}" />
+                  </StackLayout>
+                </StackLayout>
+                <StackLayout IsVisible="{Binding idtipo, Converter={StaticResource tarjetacnv}}" Padding="5,5,5,5" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Image HeightRequest="30" VerticalOptions="Center" Aspect="AspectFill">
+                      <Image.Source>
+                        <FileImageSource File="{Binding imgtipo}" />
+                      </Image.Source>
+                    </Image>
+                    <Label Text="{Binding tipo}" Style="{DynamicResource LblCSDesc}" />
+                  </StackLayout>
+                </StackLayout>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+      <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="FillAndExpand">
+        <Button x:Name="btnNuevo" BorderRadius="0" HorizontalOptions="FillAndExpand" Text="Agregar nueva" Style="{DynamicResource ButtonRojo}"/>
+      </StackLayout>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

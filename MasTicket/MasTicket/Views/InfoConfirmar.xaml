@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+			 xmlns:local="clr-namespace:MasTicket;"
+             x:Class="MasTicket.InfoConfirmar">
+
+  <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0, 0, 0, 0">
+    <StackLayout BackgroundColor="White" Padding="0, 0, 0, 0">
+
+      <Grid Style="{DynamicResource GridHeaderInfo}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" x:Name="lblTitulo" Text="Confirmacion" Style="{DynamicResource LabelHeaderInfo}" />
+      </Grid>
+
+      <StackLayout Padding="10" BackgroundColor="#fdfdfd">
+        <Label Text="Esta seguro de hacer esta recarga?" />
+        
+        <ScrollView VerticalOptions="FillAndExpand">
+          <Grid VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="10"/>
+              <ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Row="0" Grid.ColumnSpan="3" Padding="10,0,10,0" Style="{DynamicResource StackFondoRojo}">
+              <Label FontAttributes="Bold" FontSize="Small" VerticalTextAlignment="Center" Text="Recarga" TextColor="White" />
+            </StackLayout>
+            <Label Grid.Row="1" Grid.Column="1" Text="Pais:" Style="{DynamicResource LblCSDescRojo}" />
+            <Label Grid.Row="1" Grid.Column="2" Text="Mexico" Style="{DynamicResource LblCSDesc}" />
+            <Label Grid.Row="2" Grid.Column="1" Text="Operadora:" Style="{DynamicResource LblCSDescRojo}" />
+            <Label Grid.Row="2" Grid.Column="2" Text="Telcel" Style="{DynamicResource LblCSDesc}" />
+            <Label Grid.Row="3" Grid.Column="1" Text="Numero:" Style="{DynamicResource LblCSDescRojo}" />
+            <Label Grid.Row="3" Grid.Column="2" Text="(52) 55 2732 4265" Style="{DynamicResource LblCSDesc}" />
+            <Label Grid.Row="4" Grid.Column="1" Text="Monto:" Style="{DynamicResource LblCSDescRojo}" />
+            <Label Grid.Row="4" Grid.Column="2" Text="$100.00" Style="{DynamicResource LblCSDesc}" />
+            <StackLayout Grid.Row="6" Grid.ColumnSpan="3" Padding="10,0,10,0" Style="{DynamicResource StackFondoRojo}">
+              <Label FontAttributes="Bold" FontSize="Small" VerticalTextAlignment="Center" Text="Pago" TextColor="White" />
+            </StackLayout>
+            <Label Grid.Row="7" Grid.Column="1" Text="Medio:" Style="{DynamicResource LblCSDescRojo}" />
+            <Label Grid.Row="7" Grid.Column="2" Text="Tarjeta" Style="{DynamicResource LblCSDesc}" />
+            <Label Grid.Row="8" Grid.Column="1" Text="Emisor:" Style="{DynamicResource LblCSDescRojo}" />
+            <Label Grid.Row="8" Grid.Column="2" Text="AMEX 0133" Style="{DynamicResource LblCSDesc}" />
+          </Grid>
+        </ScrollView>
+
+        <Grid VerticalOptions="EndAndExpand">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="30*" />
+          </Grid.ColumnDefinitions>
+          <local:MTButton Grid.Column="1" Grid.Row="0" Clicked="OnClose" Text="OK" Style="{DynamicResource ButtonOkInfo}" />
+          <local:MTButton Grid.Column="2" Grid.Row="0" Clicked="OnCancel" Text="Cancelar" Style="{DynamicResource ButtonOkInfo}" />
+        </Grid>
+      </StackLayout>
+    </StackLayout>
+  </StackLayout>
+
+</pages:PopupPage>

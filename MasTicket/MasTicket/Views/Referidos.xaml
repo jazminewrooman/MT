@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MasTicket;"
+             x:Class="MasTicket.Referidos">
+  <ContentPage.Content>
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+      <StackLayout Padding="0,0,0,0">
+        <Image Aspect="AspectFill" HeightRequest="100" Source="gratis.jpg"/>
+      </StackLayout>
+
+      <ScrollView VerticalOptions="FillAndExpand">
+        <StackLayout Padding="30,40,30,40" Orientation="Vertical" Spacing="0" VerticalOptions="FillAndExpand">
+          <Image HeightRequest="60" Source="gift.png" />
+          <Label Style="{DynamicResource LblOrdenDet}" Text="Así Compras, ¡Te conviene!. Recarga tu celular, el de tu familia y amigos en cualquier momento y lugar. Conoce la forma inteligente de ahorrar tiempo y dinero de manera segura."></Label>
+            <BoxView HeightRequest="20" WidthRequest="1"/>
+            <Label x:Name="lblCodigo" Style="{DynamicResource LblOrdenDet}" />
+        </StackLayout>
+      </ScrollView>
+
+      <StackLayout Style="{DynamicResource StackBoton}">
+        <local:MTButton x:Name="btnComp" HorizontalOptions="FillAndExpand" Text="¡Invita!" Style="{DynamicResource ButtonRojo}"/>
+      </StackLayout>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

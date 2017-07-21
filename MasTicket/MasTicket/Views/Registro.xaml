@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:plugin="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:local="clr-namespace:MasTicket;"
+	           xmlns:controls="clr-namespace:MasTicket;"
+             x:Class="MasTicket.Registro">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <local:MuestraErroresConverter x:Key="errorescnv"></local:MuestraErroresConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>  
+  <ContentPage.Content>
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+      
+      <ScrollView VerticalOptions="FillAndExpand">
+		<StackLayout>
+			<StackLayout Padding="0,0,0,0">
+	        	<Image Aspect="AspectFit" HeightRequest="150" Source="asicompraslogo2.png"/>
+	      	</StackLayout>
+
+	        <Grid VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+	          <Grid.RowDefinitions>
+	            <RowDefinition Height="70"/>
+	            <RowDefinition Height="38"/>
+	            <RowDefinition Height="15"/>
+	            <RowDefinition Height="38"/>
+	            <RowDefinition Height="15"/>
+	            <RowDefinition Height="38"/>
+	            <RowDefinition Height="15"/>
+	            <RowDefinition Height="38"/>
+	            <RowDefinition Height="38"/>
+	            <RowDefinition Height="15"/>
+	            <RowDefinition Height="38"/>
+	            <RowDefinition Height="15"/>
+	            <RowDefinition />
+	          </Grid.RowDefinitions>
+	          <Grid.ColumnDefinitions>
+	            <ColumnDefinition Width="1*"/>
+	            <ColumnDefinition Width="24"/>
+	            <ColumnDefinition Width="98*"/>
+	            <ColumnDefinition Width="1*"/>
+	          </Grid.ColumnDefinitions>
+	          <plugin:CircleImage Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" x:Name="imgFoto" IsVisible="False" Style="{DynamicResource ImgRegistro}"></plugin:CircleImage>
+
+	          <Image Source="profle.png" Grid.Row="1" Grid.Column="1"/>
+	          <Image Source="mail.png" Grid.Row="3" Grid.Column="1"/>
+	          <Image Source="smartphone.png" Grid.Row="5" Grid.Column="1"/>
+	          <Image Source="locked.png" Grid.Row="7" Grid.Column="1"/>
+	          <Image Source="flag.png" Grid.Row="10" Grid.Column="1"/>
+
+	          
+	          <Entry Grid.Row="1" Grid.Column="2" x:Name="edtNombre" Placeholder="Nombre" Keyboard="Default">
+	            <Entry.Behaviors>
+	              <local:EmptyValidationBehavior x:Name="nomvalNum" PropertyChanged="ValidEntries" />
+	            </Entry.Behaviors>
+	          </Entry>
+	          <Label Grid.Row="2" Grid.Column="2" BindingContext="{x:Reference nomvalNum}" IsVisible="{Binding IsValid, Converter={StaticResource errorescnv}}" x:Name="lblvalNom" Text="El nombre es obligatorio" Style="{DynamicResource LabelErrorEntry}" />
+	          <Entry Grid.Row="3" Grid.Column="2" x:Name="edtCorreo" Placeholder="Correo" Keyboard="Email">
+	            <Entry.Behaviors>
+	              <local:EmailValidationBehavior x:Name="emvalNum" PropertyChanged="ValidEntries" />
+	            </Entry.Behaviors>
+	          </Entry>
+	          <Label Grid.Row="4" Grid.Column="2" BindingContext="{x:Reference emvalNum}" IsVisible="{Binding IsValid, Converter={StaticResource errorescnv}}" x:Name="lblvalEmail" Text="El email es obligatorio, y debe ser valido" Style="{DynamicResource LabelErrorEntry}" />
+	          <local:EntryDone Grid.Row="5" Grid.Column="2" x:Name="edtNumCto" Placeholder="Numero de contacto" Keyboard="Telephone">
+	            <Entry.Behaviors>
+	              <local:PhoneValidationBehavior x:Name="phvalNum" PropertyChanged="ValidEntries" />
+	            </Entry.Behaviors>
+	          </local:EntryDone>
+	          <Label Grid.Row="6" Grid.Column="2" BindingContext="{x:Reference phvalNum}" IsVisible="{Binding IsValid, Converter={StaticResource errorescnv}}" x:Name="lblvalNum" Text="El numero es obligatorio, de 10 digitos" Style="{DynamicResource LabelErrorEntry}" />
+	          
+	          <local:VwCapturaNip x:Name="nipCapture" Text="Nip" Grid.Row="7" Grid.Column="2" >
+	            <local:VwCapturaNip.Behaviors>
+	              <local:NipValidationBehavior x:Name="nipval" PropertyChanged="ValidEntries" />
+	            </local:VwCapturaNip.Behaviors>
+	          </local:VwCapturaNip>
+	          <local:VwCapturaNip x:Name="nipConfirme" Text="Confirme" Grid.Row="8" Grid.Column="2" >
+	            <local:VwCapturaNip.Behaviors>
+	              <local:NipValidationBehavior x:Name="nipconfval" PropertyChanged="ValidEntries" />
+	            </local:VwCapturaNip.Behaviors>
+	          </local:VwCapturaNip>
+	          <Label Grid.Row="9" Grid.Column="2" x:Name="lblvalNip" Text="El nip es obligatorio y ambos deben ser iguales" Style="{DynamicResource LabelErrorEntry}" />
+	          
+	          <local:VwCambiarPais x:Name="cvwPais" Grid.Row="10" Grid.Column="2" />
+						
+			  <StackLayout Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+				<Label HorizontalTextAlignment="Center" Text="Al hacer click en Aceptar usted acepta la " TextColor="Black" FontSize="10" />
+				<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+					<Label x:Name="lblPoliticas" Text="politica de privacidad" TextColor="Purple" FontSize="10" />
+					<Label Text=" y los " TextColor="Black" FontSize="10" />
+					<Label x:Name="lblTerminos" Text="Terminos y condiciones" TextColor="Purple" FontSize="10" />
+				</StackLayout>
+				<BoxView HeightRequest="10"/>
+	          </StackLayout>
+	      </Grid>
+		</StackLayout>
+      </ScrollView>
+
+      <StackLayout Style="{DynamicResource StackBoton}">
+        <local:MTButton x:Name="btnLogin" IsEnabled="False" Text="Aceptar" Style="{DynamicResource ButtonRojo}"/>
+      </StackLayout>
+
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

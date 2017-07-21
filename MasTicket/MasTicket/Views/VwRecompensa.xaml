@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasTicket.VwRecompensa"
+             xmlns:local="clr-namespace:MasTicket;">
+  <ContentView.Content>
+
+    <Grid Padding="10,0,10,10" MinimumHeightRequest="36" MinimumWidthRequest="44">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="44" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <AbsoluteLayout HeightRequest="36" WidthRequest="36" HorizontalOptions="Start">
+        <local:MTButton BorderRadius="18" x:Name="btnReco" BackgroundColor="Red"
+          AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds=".5,.5,1,1" />
+        <Label Text="2" FontSize="Small" TextColor="White"
+          AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds=".5,.5,1,1" XAlign="Center" YAlign="Center" />
+      </AbsoluteLayout>
+      <Label Grid.Column="1" Text="Recompensa(s) nueva(s)"
+        VerticalOptions="Center" IsVisible="true" />
+    </Grid>
+
+  </ContentView.Content>
+</ContentView>

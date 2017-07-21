@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:MasTicket;"
+	x:Class="MasTicket.OlvideNip">
+  <ContentPage.Content Padding="0">
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+      
+      <ScrollView VerticalOptions="EndAndExpand">
+		<StackLayout>
+		<StackLayout Padding="0,0,0,0">
+        	<Image Aspect="AspectFit" HeightRequest="150" Source="asicompraslogo2.png"/>
+      	</StackLayout>
+
+		<Grid x:Name="grdLogin" VerticalOptions="Center" RowSpacing="10"  HorizontalOptions="FillAndExpand">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+			<RowDefinition Height="40"/>
+			<RowDefinition Height="80"/>						
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="5*"/>
+          </Grid.ColumnDefinitions>
+          <Entry Grid.Row="0" Grid.Column="1" x:Name="edtCorreo" Placeholder="Correo" Keyboard="Email">
+            <!--<Entry.Behaviors>
+              <local:EmailValidationBehavior x:Name="emvalNum" PropertyChanged="ValidEntries" />
+            </Entry.Behaviors>-->
+          </Entry>
+          <local:ImageButton Source="proflew.png" ButtonBackgroundColor="#553191" Grid.Row="1" Grid.Column="1" x:Name="btnEntrar" Text="Enviar"/>
+          <local:ImageButton Source="cross.png" ButtonBackgroundColor="#000000" Grid.Row="2" Grid.Column="1" x:Name="btnCancelar" Text="Cancelar"/>
+	    </Grid>
+		</StackLayout>
+	  </ScrollView>
+	</StackLayout>
+  </ContentPage.Content>
+</ContentPage>

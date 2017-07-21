@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasTicket.Ticket">
+  <ContentPage.Content>
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+      
+      <ScrollView VerticalOptions="FillAndExpand">
+		<StackLayout>
+			<StackLayout Padding="0,0,0,0">
+	        	<Image Aspect="AspectFill" HeightRequest="100" Source="factura.jpg"/>
+	      	</StackLayout>
+		  	<!--<BoxView HeightRequest="30" BackgroundColor="Transparent"/>-->
+
+        	<Grid VerticalOptions="Center">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="5*"/>
+          </Grid.ColumnDefinitions>
+          <Label x:Name="lblTrans" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" Text="TRANSACCION 5480084" FontAttributes="Bold" />
+          <Label x:Name="lblFecha" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" Text="FECHA 21/06/2016 00:03"  />
+          <Label Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" Text="TRANSACCION EXITOSA DE :"  />
+          <Label x:Name="lblCarrier" Grid.Row="3" Grid.Column="1" HorizontalOptions="Center" Text="TELCEL" FontAttributes="Bold" />
+          <Label x:Name="lblMonto" Grid.Row="4" Grid.Column="1" HorizontalOptions="Center" Text="MONTO: $50.00" FontAttributes="Bold" FontSize="Large" />
+          <Label x:Name="lblCel" Grid.Row="5" Grid.Column="1" HorizontalOptions="Center" Text="celular : 6241543202" FontAttributes="Bold" />
+          <Label x:Name="lblAutorizacion" Grid.Row="6" Grid.Column="1" HorizontalOptions="Center" Text="AUTORIZACION: 236885" FontAttributes="Bold" />
+          <Label x:Name="lblPrintdata" Grid.Row="7" Grid.Column="1" HorizontalOptions="Center" Text="Cualquier duda o aclaracion al tel *264 o al 018007105687" />
+          <!--<Label Grid.Row="8" Grid.Column="1" HorizontalOptions="Center" Text="Vigencia de la recarga 30 dias."  />-->
+        </Grid>
+		</StackLayout>
+      </ScrollView>
+      <StackLayout Style="{DynamicResource StackBoton}">
+        <Button x:Name="btnCerrar" BorderRadius="0" HorizontalOptions="FillAndExpand" Text="Cerrar" Style="{DynamicResource ButtonRojo}"/>
+      </StackLayout>
+      
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

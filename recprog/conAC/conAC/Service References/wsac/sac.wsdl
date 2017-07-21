@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="sac" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_Isac_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:BasicAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://asicompras.com/wsac/sac.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Isac_GetCatalogo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogo" />
+  </wsdl:message>
+  <wsdl:message name="Isac_GetCatalogo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isac_EnviaMailRecordatorio_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviaMailRecordatorio" />
+  </wsdl:message>
+  <wsdl:message name="Isac_EnviaMailRecordatorio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnviaMailRecordatorioResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isac_AltaRecargaProg_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltaRecargaProg" />
+  </wsdl:message>
+  <wsdl:message name="Isac_AltaRecargaProg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltaRecargaProgResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isac_AltaRecarga_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltaRecarga" />
+  </wsdl:message>
+  <wsdl:message name="Isac_AltaRecarga_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltaRecargaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isac_AltaRecargaMonedero_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltaRecargaMonedero" />
+  </wsdl:message>
+  <wsdl:message name="Isac_AltaRecargaMonedero_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltaRecargaMonederoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isac_AltaRecargaViaWallet_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltaRecargaViaWallet" />
+  </wsdl:message>
+  <wsdl:message name="Isac_AltaRecargaViaWallet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltaRecargaViaWalletResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isac_AltaUsr_InputMessage">
+    <wsdl:part name="parameters" element="tns:AltaUsr" />
+  </wsdl:message>
+  <wsdl:message name="Isac_AltaUsr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AltaUsrResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isac_Mod_Usuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:Mod_Usuario" />
+  </wsdl:message>
+  <wsdl:message name="Isac_Mod_Usuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Mod_UsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isac_EliminaTarjeta_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaTarjeta" />
+  </wsdl:message>
+  <wsdl:message name="Isac_EliminaTarjeta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaTarjetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isac_CargaVesta1aVez_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaVesta1aVez" />
+  </wsdl:message>
+  <wsdl:message name="Isac_CargaVesta1aVez_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaVesta1aVezResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isac_CargaVesta2aVez_InputMessage">
+    <wsdl:part name="parameters" element="tns:CargaVesta2aVez" />
+  </wsdl:message>
+  <wsdl:message name="Isac_CargaVesta2aVez_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CargaVesta2aVezResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Isac">
+    <wsdl:operation name="GetCatalogo">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isac/GetCatalogo" message="tns:Isac_GetCatalogo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isac/GetCatalogoResponse" message="tns:Isac_GetCatalogo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviaMailRecordatorio">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isac/EnviaMailRecordatorio" message="tns:Isac_EnviaMailRecordatorio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isac/EnviaMailRecordatorioResponse" message="tns:Isac_EnviaMailRecordatorio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaRecargaProg">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isac/AltaRecargaProg" message="tns:Isac_AltaRecargaProg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isac/AltaRecargaProgResponse" message="tns:Isac_AltaRecargaProg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaRecarga">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isac/AltaRecarga" message="tns:Isac_AltaRecarga_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isac/AltaRecargaResponse" message="tns:Isac_AltaRecarga_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaRecargaMonedero">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isac/AltaRecargaMonedero" message="tns:Isac_AltaRecargaMonedero_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isac/AltaRecargaMonederoResponse" message="tns:Isac_AltaRecargaMonedero_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaRecargaViaWallet">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isac/AltaRecargaViaWallet" message="tns:Isac_AltaRecargaViaWallet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isac/AltaRecargaViaWalletResponse" message="tns:Isac_AltaRecargaViaWallet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaUsr">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isac/AltaUsr" message="tns:Isac_AltaUsr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isac/AltaUsrResponse" message="tns:Isac_AltaUsr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Mod_Usuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isac/Mod_Usuario" message="tns:Isac_Mod_Usuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isac/Mod_UsuarioResponse" message="tns:Isac_Mod_Usuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaTarjeta">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isac/EliminaTarjeta" message="tns:Isac_EliminaTarjeta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isac/EliminaTarjetaResponse" message="tns:Isac_EliminaTarjeta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaVesta1aVez">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isac/CargaVesta1aVez" message="tns:Isac_CargaVesta1aVez_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isac/CargaVesta1aVezResponse" message="tns:Isac_CargaVesta1aVez_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CargaVesta2aVez">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isac/CargaVesta2aVez" message="tns:Isac_CargaVesta2aVez_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isac/CargaVesta2aVezResponse" message="tns:Isac_CargaVesta2aVez_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_Isac" type="tns:Isac">
+    <wsp:PolicyReference URI="#BasicHttpBinding_Isac_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCatalogo">
+      <soap:operation soapAction="http://tempuri.org/Isac/GetCatalogo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviaMailRecordatorio">
+      <soap:operation soapAction="http://tempuri.org/Isac/EnviaMailRecordatorio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaRecargaProg">
+      <soap:operation soapAction="http://tempuri.org/Isac/AltaRecargaProg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaRecarga">
+      <soap:operation soapAction="http://tempuri.org/Isac/AltaRecarga" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaRecargaMonedero">
+      <soap:operation soapAction="http://tempuri.org/Isac/AltaRecargaMonedero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaRecargaViaWallet">
+      <soap:operation soapAction="http://tempuri.org/Isac/AltaRecargaViaWallet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaUsr">
+      <soap:operation soapAction="http://tempuri.org/Isac/AltaUsr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mod_Usuario">
+      <soap:operation soapAction="http://tempuri.org/Isac/Mod_Usuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaTarjeta">
+      <soap:operation soapAction="http://tempuri.org/Isac/EliminaTarjeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaVesta1aVez">
+      <soap:operation soapAction="http://tempuri.org/Isac/CargaVesta1aVez" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargaVesta2aVez">
+      <soap:operation soapAction="http://tempuri.org/Isac/CargaVesta2aVez" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="sac">
+    <wsdl:port name="BasicHttpBinding_Isac" binding="tns:BasicHttpBinding_Isac">
+      <soap:address location="https://asicompras.com/wsac/sac.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

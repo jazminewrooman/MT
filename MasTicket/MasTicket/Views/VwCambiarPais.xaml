@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasTicket.VwCambiarPais"
+             xmlns:local="clr-namespace:MasTicket;">
+  <local:ImageButton x:Name="btnPais" Text="Seleccione pais" Style="{DynamicResource ImgButtonRojo}" />
+</ContentView>

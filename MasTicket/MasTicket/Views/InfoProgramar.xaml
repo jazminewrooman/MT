@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+			       xmlns:local="clr-namespace:MasTicket;"
+             xmlns:cal="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
+             x:Class="MasTicket.InfoProgramar">
+
+<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0, 0, 0, 0">
+        <StackLayout BackgroundColor="White" Padding="0, 0, 0, 0">
+            <Grid Style="{DynamicResource GridHeaderInfo}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" x:Name="lblTitulo" Text="Como programar" Style="{DynamicResource LabelHeaderInfo}" />
+            </Grid>
+
+           <StackLayout Padding="10" BackgroundColor="#fdfdfd">
+                <Label x:Name="lblTxt" Text="Seleccione uno o varios dias del calendario. La recarga se efectuara esos dias de cada mes (iniciando el primero del siguiente mes: Agosto) con los datos siguientes:" />
+                <Grid x:Name="grdSecondary" RowSpacing="2" ColumnSpacing="2">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="25*"/>
+                  </Grid.ColumnDefinitions>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                  </Grid.RowDefinitions>
+                  <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="5527324859" />
+                  <Image HeightRequest="30" Grid.Column="0" Grid.Row="1" Source="telcel.png" />
+                  <Label Grid.Column="1" Grid.Row="1" Text="$100.00" />
+                  <Image HeightRequest="30" Grid.Column="2" Grid.Row="1" Source="visa.png" />
+                  <Label Grid.Column="3" Grid.Row="1" Text="VISA 2152"  />
+                </Grid>
+                <Label Text="Si esta de acuerdo, oprima el boton guardar" />
+            
+                <Grid VerticalOptions="EndAndExpand">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70*" />
+            <ColumnDefinition Width="30*" />
+          </Grid.ColumnDefinitions>
+          <local:MTButton Grid.Column="1" Grid.Row="0" Clicked="OnClose" Text="OK" Style="{DynamicResource ButtonOkInfo}" />
+        </Grid>
+            </StackLayout>
+        </StackLayout>
+      </StackLayout>
+</pages:PopupPage>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:local="clr-namespace:MasTicket;"
+             x:Class="MasTicket.Procesar">
+<ContentPage.Content>
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+
+	  <ScrollView VerticalOptions="FillAndExpand">
+		<StackLayout>
+	    	<StackLayout Padding="0,0,0,0">
+	        <Image Aspect="AspectFill" HeightRequest="100" Source="chateando1.jpg"/>
+	      	</StackLayout>
+		  	<!--<BoxView HeightRequest="30" BackgroundColor="Transparent"/>-->
+				
+		  <Grid>
+			<Grid.RowDefinitions> 
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="100"/>
+			</Grid.RowDefinitions>
+					
+			<Grid Grid.Row="0" x:Name="grdRecarga" VerticalOptions="Start">
+				<Grid.RowDefinitions>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+	          		<ColumnDefinition Width="10"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+	            <StackLayout Grid.Row="0" Grid.ColumnSpan="3" Padding="10,10,10,10" Style="{DynamicResource StackFondoRojo}">
+	              <Label x:Name="lblRecarga" FontAttributes="Bold" FontSize="Small" VerticalTextAlignment="Center" Text="Recarga" TextColor="White" />
+				</StackLayout>  
+	            <Label x:Name="lblPaisTxt" Grid.Row="1" Grid.Column="1" Text="Pais:" Style="{DynamicResource LblCSDescRojo}" />
+	            <Label x:Name="lblPais" Grid.Row="1" Grid.Column="2" Text="" Style="{DynamicResource LblCSTitulo}" />
+				<Label x:Name="lblOperadoraTxt" Grid.Row="2" Grid.Column="1" Text="Operadora:" Style="{DynamicResource LblCSDescRojo}" />
+	            <Label x:Name="lblOperadora" Grid.Row="2" Grid.Column="2" Text="" Style="{DynamicResource LblCSTitulo}" />
+				<Label x:Name="lblNumeroTxt" Grid.Row="3" Grid.Column="1" Text="Numero:" Style="{DynamicResource LblCSDescRojo}" />
+	            <Label x:Name="lblNumero" FontAttributes="Bold" Grid.Row="3" Grid.Column="2" Text="" Style="{DynamicResource LblCSTitulo}" />
+	            <Label Grid.Row="4" Grid.Column="1" Text="Monto:" Style="{DynamicResource LblCSDescRojo}" />
+	            <Label x:Name="lblMonto" Grid.Row="4" Grid.Column="2" Text="" Style="{DynamicResource LblCSTitulo}" />
+	            <!--<Label Grid.Row="5" Grid.Column="1" Text="Cupon:" Style="{DynamicResource LblCSDescRojo}" />
+	            <Label x:Name="lblCupon" Grid.Row="5" Grid.Column="2" Text="" Style="{DynamicResource LblCSDesc}" />-->
+	      
+	            <StackLayout Grid.Row="6" Grid.ColumnSpan="3" Padding="10,10,10,10" Style="{DynamicResource StackFondoRojo}">
+	              <Label FontAttributes="Bold" FontSize="Small" VerticalTextAlignment="Center" Text="Pago" TextColor="White" />
+				</StackLayout>  
+	            <Label Grid.Row="7" Grid.Column="1" Text="Medio:" Style="{DynamicResource LblCSDescRojo}" />
+	            <Label x:Name="lblFormapago" Grid.Row="7" Grid.Column="2" Text="" Style="{DynamicResource LblCSTitulo}" />
+				<Label Grid.Row="8" Grid.Column="1" Text="Emisor:" Style="{DynamicResource LblCSDescRojo}" />
+	            <Label x:Name="lblEmisor" Grid.Row="8" Grid.Column="2" Text="" Style="{DynamicResource LblCSTitulo}" />
+			</Grid>
+					
+			<Grid Grid.Row="1" x:Name="grdMonedero" VerticalOptions="Start">
+				<Grid.RowDefinitions>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				    <RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+	          		<ColumnDefinition Width="10"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+	            <StackLayout Grid.Row="0" Grid.ColumnSpan="3" Padding="10,10,10,10" Style="{DynamicResource StackFondoRojo}">
+	              <Label x:Name="lblRecargaMon" FontAttributes="Bold" FontSize="Small" VerticalTextAlignment="Center" Text="Recarga" TextColor="White" />
+				</StackLayout>  
+	            <Label Grid.Row="4" Grid.Column="1" Text="Monto:" Style="{DynamicResource LblCSDescRojo}" />
+	            <Label x:Name="lblMontoMon" Grid.Row="4" Grid.Column="2" Text="" Style="{DynamicResource LblCSTitulo}" />
+	      
+	            <StackLayout Grid.Row="6" Grid.ColumnSpan="3" Padding="10,10,10,10" Style="{DynamicResource StackFondoRojo}">
+	              <Label FontAttributes="Bold" FontSize="Small" VerticalTextAlignment="Center" Text="Pago" TextColor="White" />
+				</StackLayout>  
+	            <Label Grid.Row="7" Grid.Column="1" Text="Medio:" Style="{DynamicResource LblCSDescRojo}" />
+	            <Label x:Name="lblFormapagoMon" Grid.Row="7" Grid.Column="2" Text="" Style="{DynamicResource LblCSTitulo}" />
+				<Label Grid.Row="8" Grid.Column="1" Text="Emisor:" Style="{DynamicResource LblCSDescRojo}" />
+	            <Label x:Name="lblEmisorMon" Grid.Row="8" Grid.Column="2" Text="" Style="{DynamicResource LblCSTitulo}" />
+			</Grid>
+
+<!--	FingerP		-->
+        <StackLayout Grid.Row="2" BackgroundColor="#ff0000">
+            <WebView x:Name="wv" WidthRequest="100" HeightRequest="100" />				
+		</StackLayout>
+<!--	FingerP		-->				
+		</Grid>
+		</StackLayout>
+	  </ScrollView>
+          
+	  <StackLayout Style="{DynamicResource StackBoton}">
+		  <local:MTButton x:Name="btnMedios" Text="Escoger otra tarjeta" Style="{DynamicResource ButtonRojo}" />
+		  <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+          <local:MTButton x:Name="btnProcesar" Text="¡Recargar ahora!" Style="{DynamicResource ButtonVerde}"/>
+      </StackLayout>
+	</StackLayout>	
+	</ContentPage.Content>
+</ContentPage>

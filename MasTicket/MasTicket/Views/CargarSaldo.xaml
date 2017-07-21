@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="MasTicket.CargarSaldo"
+	xmlns:local="clr-namespace:MasTicket;">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <local:MuestraErroresConverter x:Key="errorescnv"></local:MuestraErroresConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>  
+
+<ContentPage.Content>
+  <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+
+	<ScrollView VerticalOptions="FillAndExpand">
+		<StackLayout>
+		    <StackLayout Padding="0,0,0,0">
+		        <Image Aspect="AspectFill" HeightRequest="100" Source="chicosnaranja2.jpg"/>
+		    </StackLayout>
+		    <!--<BoxView HeightRequest="30" BackgroundColor="Transparent"/>-->
+						
+	      	<Grid RowSpacing="0" ColumnSpacing="0">
+				<Grid.RowDefinitions>
+			    	<RowDefinition Height="Auto"/>
+			    	<RowDefinition Height="Auto"/>
+			    	<RowDefinition Height="Auto"/>
+			    	<RowDefinition Height="Auto"/>
+			    	<RowDefinition Height="Auto"/>
+		      	</Grid.RowDefinitions>
+
+				<Grid x:Name="grdPais" Padding="0,2,0,2" Grid.Row="0" RowSpacing="0">
+			        <Grid.RowDefinitions>
+			          <RowDefinition Height="Auto"/>
+			          <RowDefinition Height="Auto"/>
+			        </Grid.RowDefinitions>
+			        <Grid.ColumnDefinitions>
+			          <ColumnDefinition Width="3"/>
+			          <ColumnDefinition Width="Auto"/>
+			          <ColumnDefinition Width="*"/>
+			          <ColumnDefinition Width="8"/>
+			          <ColumnDefinition Width="2"/>
+			        </Grid.ColumnDefinitions>
+
+			        <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+			        <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+			          <Image HeightRequest="30" WidthRequest="30" Source="{Binding opcPais.Image}" VerticalOptions="Center" Aspect="AspectFill" />
+			        </StackLayout>
+			        <StackLayout Grid.Column="2" VerticalOptions="Center">
+			          <Label Text="{Binding opcPais.Titulo}" Style="{DynamicResource LblCSDesc}"/>
+			          <Label Text="{Binding opcPais.Desc}" Style="{DynamicResource LblCSTitulo}"/>
+			        </StackLayout>
+			        <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+				</Grid>
+
+			  	<Grid x:Name="grdLimpiar" Padding="0,2,0,2" Grid.Row="1" RowSpacing="0">
+		            <Grid.RowDefinitions>
+		              <RowDefinition Height="Auto"/>
+		            </Grid.RowDefinitions>
+		            <Grid.ColumnDefinitions>
+		              <ColumnDefinition Width="3"/>
+		              <ColumnDefinition Width="Auto"/>
+		              <ColumnDefinition Width="*"/>
+		              <ColumnDefinition Width="8"/>
+		              <ColumnDefinition Width="2"/>
+		            </Grid.ColumnDefinitions>
+		            <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+		            <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+		              <Image HeightRequest="30" WidthRequest="30" Source="{Binding opcLimpiar.Image}" VerticalOptions="Center" Aspect="AspectFill" />
+		            </StackLayout>
+		            <StackLayout Grid.Column="2" VerticalOptions="Center">
+		              <Label Text="{Binding opcLimpiar.Desc}" Style="{DynamicResource LblCSTitulo}"/>
+		            </StackLayout>
+		            <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+	          	</Grid>
+						
+				<Grid x:Name="grdOperadora" Padding="0,2,0,2" Grid.Row="2" RowSpacing="0">
+					<Grid.RowDefinitions>
+					  <RowDefinition Height="Auto"/>
+					  <RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+					  <ColumnDefinition Width="3"/>
+					  <ColumnDefinition Width="Auto"/>
+					  <ColumnDefinition Width="*"/>
+					  <ColumnDefinition Width="8"/>
+					  <ColumnDefinition Width="2"/>
+					</Grid.ColumnDefinitions>
+
+					<BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+					<StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+					  <Image HeightRequest="30" WidthRequest="30" VerticalOptions="Center" Aspect="AspectFill">
+					    <Image.Source>
+					      <FileImageSource File="{Binding opcOperadora.Image}" />
+					    </Image.Source>
+					  </Image>
+					</StackLayout>
+					<StackLayout Grid.Column="2" VerticalOptions="Center">
+					  <Label Text="{Binding opcOperadora.Titulo}" Style="{DynamicResource LblCSDesc}"/>
+					  <Label Text="{Binding opcOperadora.Desc}" Style="{DynamicResource LblCSTitulo}"/>
+					</StackLayout>
+					<Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+				</Grid>
+
+				<Grid x:Name="grdNumero" Padding="0,2,0,2" Grid.Row="3" RowSpacing="0">
+					<Grid.RowDefinitions>
+					  <RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+					  <ColumnDefinition Width="3"/>
+					  <ColumnDefinition Width="Auto"/>
+					  <ColumnDefinition Width="*"/>
+					  <ColumnDefinition Width="3"/>
+					</Grid.ColumnDefinitions>
+
+					<BoxView Grid.Column="0" Grid.Row="0" Style="{DynamicResource BoxVCS}"/>
+					<StackLayout Grid.Column="1" Grid.Row="0" Padding="5,5,5,5" VerticalOptions="Center">
+					  <Image HeightRequest="30" WidthRequest="30" VerticalOptions="Center" Aspect="AspectFill">
+					    <Image.Source>
+					      <FileImageSource File="{Binding opcNumero.Image}" />
+					    </Image.Source>
+					  </Image>
+					</StackLayout>
+					<StackLayout Grid.Column="2" Grid.Row="0" VerticalOptions="Center">
+					  <Grid RowSpacing="0">
+					     <Grid.RowDefinitions>
+					      <RowDefinition Height="Auto" />
+						  <RowDefinition Height="20" />
+						  <RowDefinition />
+					    </Grid.RowDefinitions>
+						<Grid Grid.Row="0">
+							<Grid.ColumnDefinitions>
+					      		<ColumnDefinition Width="40*" />
+								<ColumnDefinition Width="40*" />
+							</Grid.ColumnDefinitions>
+						    <local:EntryDone Grid.Column="0" x:Name="txtNum"  Placeholder="Numero" Keyboard="Telephone">
+								<Entry.Behaviors>
+									<local:PhoneValidationBehavior x:Name="phvalNum" />
+								</Entry.Behaviors>
+							</local:EntryDone>
+							<local:MTButton Grid.Column="1" x:Name="btnContactos" Text="Contactos" Style="{DynamicResource ButtonRojo}"/>
+						</Grid>
+						<Label Grid.Row="1" x:Name="lblContacto" Style="{DynamicResource LblContacto}" />
+					  </Grid>
+					  <!--<Label VerticalTextAlignment="Center" x:Name="lblvalNum" Text="El numero es obligatorio, de 10 dígitos" Style="{DynamicResource LabelErrorEntry}" />-->
+					  <Label VerticalTextAlignment="Center" BindingContext="{x:Reference phvalNum}" IsVisible="{Binding IsValid, Converter={StaticResource errorescnv}}" x:Name="lblvalNum" Text="Ingrese el número a recargar a 10 dígitos" Style="{DynamicResource LabelErrorEntry}" />
+					</StackLayout>
+				</Grid>
+
+				<Grid x:Name="grdSaldo" Padding="0,2,0,2" Grid.Row="4" RowSpacing="0">
+					<Grid.RowDefinitions>
+					  <RowDefinition Height="Auto"/>
+					  <RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+					  <ColumnDefinition Width="3"/>
+					  <ColumnDefinition Width="Auto"/>
+					  <ColumnDefinition Width="*"/>
+					  <ColumnDefinition Width="8"/>
+					  <ColumnDefinition Width="2"/>
+					</Grid.ColumnDefinitions>
+
+					<BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+					<StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+					  <Image HeightRequest="30" WidthRequest="30" VerticalOptions="Center" Aspect="AspectFill">
+					    <Image.Source>
+					      <FileImageSource File="{Binding opcPaquete.Image}" />
+					    </Image.Source>
+					  </Image>
+					</StackLayout>
+					<StackLayout Grid.Column="2" VerticalOptions="Center">
+					  <Label Text="{Binding opcPaquete.Titulo}" Style="{DynamicResource LblCSDesc}"/>
+					  <Label Text="{Binding opcPaquete.Desc}" Style="{DynamicResource LblCSTitulo}"/>
+					  <Label VerticalTextAlignment="Center" x:Name="lblvalOpePaq" Text="La compañía y el monto son obligatorios" Style="{DynamicResource LabelErrorEntry}" />
+					</StackLayout>
+					<Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+				</Grid>
+
+				<!--<Grid x:Name="grdCupon" RowSpacing="0">
+					<Grid.RowDefinitions>
+					  <RowDefinition Height="Auto"/>
+					  <RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+					  <ColumnDefinition Width="3"/>
+					  <ColumnDefinition Width="Auto"/>
+					  <ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+					<StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+					  <Image HeightRequest="30" WidthRequest="30" VerticalOptions="Center" Aspect="AspectFill">
+					    <Image.Source>
+					      <FileImageSource File="{Binding opcCupon.Image}" />
+					    </Image.Source>
+					  </Image>
+					</StackLayout>
+					<StackLayout Grid.Column="2" VerticalOptions="Center">
+					  <Entry x:Name="txtCupon" Placeholder="Cupon de descuento" Text="" Keyboard="Text"/>
+					</StackLayout>
+				</Grid>-->
+
+	            <!--<ViewCell x:Name="vclProgramar">
+	                <ViewCell.View>
+	                  <Grid x:Name="grdProgramar" RowSpacing="0">
+	                    <Grid.RowDefinitions>
+	                      <RowDefinition Height="Auto"/>
+	                      <RowDefinition Height="Auto"/>
+	                    </Grid.RowDefinitions>
+	                    <Grid.ColumnDefinitions>
+	                      <ColumnDefinition Width="3"/>
+	                      <ColumnDefinition Width="Auto"/>
+	                      <ColumnDefinition Width="*"/>
+	                      <ColumnDefinition Width="8"/>
+	                      <ColumnDefinition Width="2"/>
+	                    </Grid.ColumnDefinitions>
+
+	                    <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+	                    <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+	                      <Image HeightRequest="30" VerticalOptions="Center" Aspect="AspectFill">
+	                        <Image.Source>
+	                          <FileImageSource File="{Binding Image}" />
+	                        </Image.Source>
+	                      </Image>
+	                    </StackLayout>
+	                    <StackLayout Grid.Column="2" VerticalOptions="Center">
+	                      <Label Text="{Binding Titulo}" Style="{DynamicResource LblCSDesc}"/>
+	                      <Label Text="{Binding Desc}" Style="{DynamicResource LblCSTituloRojo}"/>
+	                    </StackLayout>
+	                    <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+	                  </Grid>
+	                </ViewCell.View>
+	              </ViewCell>-->
+			</Grid>
+		</StackLayout>
+	</ScrollView>
+			
+	<StackLayout Style="{DynamicResource StackBoton}">
+		<local:MTButton x:Name="btnAplicar" Text="Comprar" IsEnabled="false" Style="{DynamicResource ButtonRojo}" />
+	</StackLayout>
+			
+    </StackLayout>
+</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MasTicket;"
+             x:Class="MasTicket.VwCapturaNip">
+<ContentView.Content>
+  <Grid x:Name="grdMain" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="36*"/>
+      <ColumnDefinition Width="16*"/>
+      <ColumnDefinition Width="16*"/>
+      <ColumnDefinition Width="16*"/>
+      <ColumnDefinition Width="16*"/>
+    </Grid.ColumnDefinitions>
+    <Label x:Name="lblTxt" Text="{Binding Text}" VerticalOptions="Center" VerticalTextAlignment="Center" Grid.Column="0" />
+    <Entry x:Name="edtPwd1" TextChanged="CambiaTxt" Keyboard="Numeric" WidthRequest="10" Grid.Column="1" IsPassword="True">
+      <Entry.Behaviors>
+        <local:CharValidationBehavior />
+      </Entry.Behaviors>
+    </Entry>
+    <Entry x:Name="edtPwd2" TextChanged="CambiaTxt" Keyboard="Numeric" WidthRequest="10" Grid.Column="2" IsPassword="True">
+      <Entry.Behaviors>
+        <local:CharValidationBehavior />
+      </Entry.Behaviors>
+    </Entry>
+    <Entry x:Name="edtPwd3" TextChanged="CambiaTxt" Keyboard="Numeric" WidthRequest="10" Grid.Column="3" IsPassword="True">
+      <Entry.Behaviors>
+        <local:CharValidationBehavior />
+      </Entry.Behaviors>
+    </Entry>
+    <Entry x:Name="edtPwd4" TextChanged="CambiaTxt" Keyboard="Numeric" WidthRequest="10" Grid.Column="4" IsPassword="True">
+      <Entry.Behaviors>
+        <local:CharValidationBehavior />
+      </Entry.Behaviors>
+    </Entry>
+  </Grid>
+
+</ContentView.Content>
+</ContentView>

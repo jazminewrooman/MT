@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasTicket.Reco">
+  <ContentPage.Content>
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+      
+      <ListView x:Name="lvRecompensas" HasUnevenRows="True" ItemsSource="{Binding ls}" IsGroupingEnabled="False" SeparatorColor="Black">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Padding="5,5,5,5" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Grid VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="90*"/>
+                  </Grid.ColumnDefinitions>
+                  <Label Style="{DynamicResource LblCSTituloRojo}" Grid.Row="0" Grid.Column="0" FontSize="Large" Text="{Binding Id}" />
+                  <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1">
+                    <Label Style="{DynamicResource LblCSTituloRojo}" FontSize="Medium" Text="{Binding Titulo}" />
+                    <Label Style="{DynamicResource LblCSDesc}" FontSize="Small" Text="{Binding Desc}" />
+                    <Label Style="{DynamicResource LblCSDesc}" FontSize="Small" Text="{Binding Valido}" />
+                  </StackLayout>
+                </Grid>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

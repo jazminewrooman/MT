@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasTicket.RegPago"
+             xmlns:local="clr-namespace:MasTicket;">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <local:MuestraSaldoConverter x:Key="saldocnv"></local:MuestraSaldoConverter>
+      <local:MuestraTarjetaConverter x:Key="tarjetacnv"></local:MuestraTarjetaConverter>
+      <local:MuestraErroresConverter x:Key="errorescnv"></local:MuestraErroresConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+
+      <StackLayout Padding="0,0,0,0">
+        <Image Aspect="AspectFill" HeightRequest="100" Source="chicosnaranja3.jpg"/>
+      </StackLayout>
+	    <!--<BoxView HeightRequest="30" BackgroundColor="Transparent"/>-->
+
+	  <ScrollView x:Name="svMsgNoTarj" VerticalOptions="FillAndExpand">
+        <StackLayout Padding="30,40,30,40" Orientation="Vertical" Spacing="0" VerticalOptions="FillAndExpand">
+          <Image HeightRequest="60" Source="coffee.png" />
+          <Label Style="{DynamicResource LblOrdenDet}" Text="Antes de recargar, necesitas dar de alta alguna tarjeta de crédito o debito en el botón de abajo o conseguir saldo para tu monedero en la opción del menú correspondiente"></Label>
+        </StackLayout>
+      </ScrollView>
+      
+      <StackLayout x:Name="slMonedero" Padding="10,10,10,10">
+          <Label x:Name="lblSaldo" Style="{DynamicResource LblOrdenDet2}" Text=""/>
+          <Entry x:Name="txtMonto" Text="" Placeholder="Monto a recargar" Keyboard="Numeric" >
+        	  <Entry.Behaviors>
+                <local:DecimalValidationBehavior x:Name="phvalNum" />
+              </Entry.Behaviors>
+          </Entry>
+          <Label Grid.Row="6" Grid.Column="2" BindingContext="{x:Reference phvalNum}" IsVisible="{Binding IsValid, Converter={StaticResource errorescnv}}" x:Name="lblvalNum" Text="El monto debe ser mayor a 0" Style="{DynamicResource LabelErrorEntry}" />
+      </StackLayout>
+      
+      <ListView x:Name="lvRegPagos" HasUnevenRows="true" IsGroupingEnabled="true" ItemsSource="{Binding grptipos}">
+        <ListView.GroupHeaderTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Padding="15,10,15,10" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Style="{DynamicResource StackFondoRojo}">
+                <Label Text="{Binding Name}" Style="{DynamicResource LblCSTituloW}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.ContextActions>
+                <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="¿Eliminar esta tarjeta?" IsDestructive="True" />
+              </ViewCell.ContextActions>
+              <Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+                <StackLayout IsVisible="{Binding idtipo, Converter={StaticResource saldocnv}}" Padding="10,10,10,10" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding tipo}" Style="{DynamicResource LblCSDesc}" />
+                    <Label Text="{Binding saldo, StringFormat='{}{0:c}'}" Style="{DynamicResource LblCSDesc}"/>
+                  </StackLayout>
+                </StackLayout>
+                <StackLayout IsVisible="{Binding idtipo, Converter={StaticResource tarjetacnv}}" Padding="10,10,10,10" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Image HeightRequest="22" WidthRequest="32" VerticalOptions="Center" Aspect="AspectFill">
+                      <Image.Source>
+                        <!--<FileImageSource File="{Binding imgtipo}" />-->
+						<UriImageSource Uri="{Binding imgtipo}" />
+                      </Image.Source>
+                    </Image>
+                    <Label Text="{Binding tipo}" Style="{DynamicResource LblCSDesc}" />
+                  </StackLayout>
+                </StackLayout>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+      <StackLayout Style="{DynamicResource StackBoton}">
+        <local:ImageButton x:Name="btnNuevo" Text="Agregar nueva tarjeta" Style="{DynamicResource ImgButtonRojo}"/>
+      </StackLayout>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

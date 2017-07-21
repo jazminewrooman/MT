@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MasTicket.PopupPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
+
+    <ContentPage.Content>
+      <StackLayout Orientation="Horizontal">
+        <Button WidthRequest="100" HeightRequest="40" x:Name="OpenButton" Text="Open selector popup" />
+      </StackLayout>
+
+        <!--<controls:PopupLayout>
+            <controls:PopupLayout.Content>
+               <ListView x:Name="lvOpciones" HasUnevenRows="true" SeparatorColor="Black">
+                  <ListView.ItemTemplate>
+                    <DataTemplate>
+                      <ViewCell>
+                        <Grid>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                          </Grid.ColumnDefinitions>
+                          <StackLayout Grid.Column="0" Padding="5,10,5,10" VerticalOptions="Center">
+                            <Image VerticalOptions="Center" Aspect="AspectFill">
+                              <Image.Source>
+                                <FileImageSource File="{Binding imgopc}" />
+                              </Image.Source>
+                            </Image>
+                          </StackLayout>
+                          <StackLayout Grid.Column="2" VerticalOptions="Center">
+                            <Label Text="{Binding idopc}" IsVisible="False" Style="{DynamicResource LblCSDesc}"/>
+                            <Label Text="{Binding opc}" Style="{DynamicResource LblCSTitulo}"/>
+                          </StackLayout>
+                        </Grid>
+                      </ViewCell>
+                    </DataTemplate>
+                  </ListView.ItemTemplate>
+                </ListView>
+            </controls:PopupLayout.Content>
+        </controls:PopupLayout>-->
+      
+        
+      </ContentPage.Content>
+</ContentPage>

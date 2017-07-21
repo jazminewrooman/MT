@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="MasTicket.ListaOpciones"
+	xmlns:local="clr-namespace:MasTicket;">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <local:MuestraImgConverter x:Key="imgcnv"></local:MuestraImgConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content Padding="0">
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+      <StackLayout Padding="0,0,0,0">
+        <Image Aspect="AspectFill" HeightRequest="100" Source="smartphones1.jpg"/>
+      </StackLayout>
+	  <!--<BoxView HeightRequest="30" BackgroundColor="Transparent"/>-->
+			
+      <ListView x:Name="lvOpciones" HasUnevenRows="true" SeparatorColor="Black">
+        <ListView.GroupHeaderTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Padding="15,10,15,10" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Style="{DynamicResource StackFondoRojo}">
+                <Label Text="{Binding Name}" Style="{DynamicResource LblCSTituloW}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto"/>
+                  <ColumnDefinition Width="5"/>
+                  <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="36"/>
+                </Grid.RowDefinitions>
+                <StackLayout IsVisible="{Binding imgopc, Converter={StaticResource imgcnv}}" Grid.Column="0" Padding="5,0,5,0" VerticalOptions="Center">
+                  <Image VerticalOptions="Center" HeightRequest="30" WidthRequest="50" Aspect="Fill">
+                    <Image.Source>
+                      <!--<FileImageSource File="{Binding imgopc}" />-->
+					  <UriImageSource Uri="{Binding imgopc}" />
+                    </Image.Source>
+                  </Image>
+                </StackLayout>
+                <StackLayout Grid.Column="2" VerticalOptions="Center">
+                  <Label Text="{Binding idopc}" IsVisible="False" Style="{DynamicResource LblCSDesc}"/>
+                  <Label Text="{Binding opc}" Style="{DynamicResource LblCSDesc}"/>
+                </StackLayout>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

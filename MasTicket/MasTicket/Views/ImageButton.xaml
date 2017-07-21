@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="MasTicket.ImageButton"
+	xmlns:local="clr-namespace:MasTicket;"
+	BackgroundColor="Transparent">
+
+	<AbsoluteLayout x:Name="root" WidthRequest="{Binding WidthRequest}" HeightRequest="{Binding HeightRequest}">
+		<local:MTButton x:Name="background" BorderRadius="3" BackgroundColor="{Binding ButtonBackgroundColor}"
+			AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds=".5,.5,1,1" TextColor="White" />
+
+		<StackLayout Orientation="Horizontal" Padding="0,3,0,3" HorizontalOptions="FillAndExpand" Spacing="10" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".5,.5,-1,-1" >
+			<!--<Grid RowSpacing="1" ColumnSpacing="1" HorizontalOptions="FillAndExpand">
+            	<Grid.ColumnDefinitions>
+                	<ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+				<Image Grid.Column="0" Source="{Binding Source}" VerticalOptions="Center" />
+				<Label Grid.Column="1" TextColor="White" Text="{Binding Text}" FontSize="Medium" VerticalOptions="Center" />
+			</Grid>-->
+			<Image Source="{Binding Source}" VerticalOptions="Center" />
+			<Label TextColor="White" Text="{Binding Text}" FontSize="Medium" VerticalOptions="Center" />
+		</StackLayout>
+
+		<local:MTButton BorderRadius="{Binding BorderRadius}" BackgroundColor="Transparent" BindingContext="{x:Reference Name=background}"
+			AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds=".5,.5,1,1" Clicked="HandleClick" />
+	</AbsoluteLayout>
+
+</ContentView>

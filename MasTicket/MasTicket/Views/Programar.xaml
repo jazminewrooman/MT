@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MasTicket;"
+             x:Class="MasTicket.Programar">
+  <ContentPage.Content Padding="0">
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+      <!--<StackLayout Padding="5,5,5,5" Style="{DynamicResource StackHeader}">
+        <Image Source="masticket.png"/>
+      </StackLayout>-->
+      
+
+          <Grid x:Name="grdMain" ColumnSpacing="0" RowSpacing="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+          </Grid>
+
+          <ListView x:Name="lvFechas" HasUnevenRows="true">
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell>
+                  <Label Text="{Binding strfecha}"/>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+       
+	   <StackLayout Style="{DynamicResource StackBoton}">
+	    <local:MTButton x:Name="btnGuardar" Text="Guardar" Style="{DynamicResource ButtonRojo}"/>
+	   </StackLayout>
+
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

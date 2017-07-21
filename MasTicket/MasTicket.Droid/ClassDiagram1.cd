@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="MasTicket.catEmisorTC">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAQAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>C:\Users\a\Desktop\MasTicket\MasTicket\MasTicket\Models\Catalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.catFormasPago">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\a\Desktop\MasTicket\MasTicket\MasTicket\Models\Catalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.catOperadora">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAEAAAAAAQAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\a\Desktop\MasTicket\MasTicket\MasTicket\Models\Catalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.catPais">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAEAAEAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>C:\Users\a\Desktop\MasTicket\MasTicket\MasTicket\Models\Catalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.catPaquete">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAgQAAAAQAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>C:\Users\a\Desktop\MasTicket\MasTicket\MasTicket\Models\Catalogos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.Usuario">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAICEAQAgAAAAgAAAAAAEAAAAAAAAAAAAQCA=</HashCode>
+      <FileName>C:\Users\a\Desktop\MasTicket\MasTicket\MasTicket\Models\Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.Tarjeta">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAkAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAEBQAAEAAg=</HashCode>
+      <FileName>C:\Users\a\Desktop\MasTicket\MasTicket\MasTicket\Models\Tarjeta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.Recarga">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAIAQAAABAIEAAQgAAACAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>C:\Users\a\Desktop\MasTicket\MasTicket\MasTicket\Models\Recarga.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.RecargaFrecuente">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\a\Desktop\MasTicket\MasTicket\MasTicket\Models\Recarga.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasTicket.RecargaProg">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\a\Desktop\MasTicket\MasTicket\MasTicket\Models\Recarga.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MasTicket.TipoSocial">
+    <Position X="1" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>C:\Users\a\Desktop\MasTicket\MasTicket\MasTicket\Views\loginfacebook.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MasTicket.TipoRecarga">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>C:\Users\a\Desktop\MasTicket\MasTicket\MasTicket\Views\Ticket.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

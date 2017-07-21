@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="MasTicket.CargarSaldo2"
+  xmlns:plugin="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+  xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+  xmlns:local="clr-namespace:MasTicket;"
+  >
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <local:ByteArrayToImageSourceConverter x:Key="bic" />
+      <local:MuestraSaldoConverter x:Key="saldocnv"></local:MuestraSaldoConverter>
+      <local:MuestraTarjetaConverter x:Key="tarjetacnv"></local:MuestraTarjetaConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+    <ContentPage.Content Padding="0">
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+      
+      <!--<StackLayout Padding="5,5,5,5" Style="{DynamicResource StackHeader}">
+        <Image Source="masticket.png"/>
+      </StackLayout>-->
+      
+      <StackLayout x:Name="slMain" IsVisible="True" Padding="5,5,5,10" Style="{DynamicResource StackHeader}">
+        <Grid x:Name="grdMain" RowSpacing="2" ColumnSpacing="2">
+          <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="60*"/>
+          </Grid.ColumnDefinitions>-->
+          <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+          </Grid.RowDefinitions>
+          
+          <local:SearchBarAnim Grid.Row="0" x:Name="srcBuscar" BindingContext="{x:Reference lvContactos}" IsVisible="{Binding IsVisible}" Placeholder="Busca contactos aqui" Style="{DynamicResource srcBar}"></local:SearchBarAnim>
+
+		      <local:ImageButton x:Name="btnNombre" Grid.Row="1" Source="smartphonew.png" Style="{DynamicResource ImgButtonBlancoRojo}"/>
+          <local:EntryDone Grid.Row="2" x:Name="txtNum" BackgroundColor="Transparent" Placeholder="Captura el numero aqui" Text="" Keyboard="Telephone"/>
+					
+          <local:ImageButton x:Name="btnPais" Grid.Row="3" Text="" Source="flagw.png" Style="{DynamicResource ImgButtonBlancoRojo}"/>
+          <local:ImageButton x:Name="btnOper" Grid.Row="4" Text="Operadora" Source="radiotowerw.png" Style="{DynamicResource ImgButtonBlancoRojo}"/>
+          <local:ImageButton x:Name="btnMonto" Grid.Row="5" Text="Monto" Source="moneyw.png" Style="{DynamicResource ImgButtonBlancoRojo}"/>
+          <local:ImageButton x:Name="btnPago" Grid.Row="6" Text="Medio de pago" Source="creditcardw.png" Style="{DynamicResource ImgButtonBlancoRojo}"/>
+        </Grid>
+      </StackLayout>
+      <StackLayout x:Name="slSecondary" IsVisible="False" Padding="5,5,5,10" Style="{DynamicResource StackHeader}">
+        <Grid x:Name="grdSecondary" RowSpacing="2" ColumnSpacing="2">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="33*"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+          </Grid.RowDefinitions>
+          <local:ImageButton x:Name="btnNombreMin" Clicked="DismissClick" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" BindingContext="{x:Reference btnNombre}" Text="{Binding Text}" Style="{DynamicResource ImgButtonBlancoRojo}"/>
+          <local:ImageButton x:Name="btnPaisMin" Clicked="DismissClick" Grid.Column="0" Grid.Row="1" BindingContext="{x:Reference btnPais}" Text="" Source="{Binding Source}" Style="{DynamicResource ImgButtonBlancoRojo}"/>
+          <local:ImageButton x:Name="btnOperMin" Clicked="DismissClick" Grid.Column="1" Grid.Row="1" BindingContext="{x:Reference btnOper}" Text="" Source="{Binding Source}" Style="{DynamicResource ImgButtonBlancoRojo}"/>
+          <local:ImageButton x:Name="btnMontoMin" Clicked="DismissClick" Grid.Column="2" Grid.Row="1" BindingContext="{x:Reference btnMonto}" Text="{Binding Text}" Style="{DynamicResource ImgButtonBlancoRojo}"/>
+        </Grid>
+      </StackLayout>
+      
+      <ListView x:Name="lvOpciones" IsVisible="False" HasUnevenRows="true" SeparatorColor="Black">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="60"/>
+                  <ColumnDefinition Width="5"/>
+                  <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="32"/>
+				</Grid.RowDefinitions>
+                <StackLayout Grid.Column="0" Padding="5,5,5,5" VerticalOptions="Center">
+                  <Image HeightRequest="30" VerticalOptions="Center" Aspect="AspectFit">
+                    <Image.Source>
+                      <FileImageSource File="{Binding imgopc}" />
+                    </Image.Source>
+                  </Image>
+                </StackLayout>
+                <StackLayout Grid.Column="2" VerticalOptions="Center">
+                  <Label Text="{Binding idopc}" IsVisible="False" Style="{DynamicResource LblCSDesc}"/>
+                  <Label Text="{Binding opc}" Style="{DynamicResource LblCSDesc}"/>
+                </StackLayout>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <ListView x:Name="lvContactos" IsVisible="True" HasUnevenRows="true" ItemsSource="{Binding Groups}" IsGroupingEnabled="true">
+        <ListView.GroupHeaderTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Padding="15,0,15,0" Style="{DynamicResource StackFondoRojo}">
+                <Label Text="{Binding letra}" Style="{DynamicResource LblCSTituloW}" />
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="50"/>
+                  <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0" Padding="5,0,5,0" VerticalOptions="Center">
+                  <plugin:CircleImage Style="{DynamicResource ImgContacto}" Source="{Binding Photo, Converter={StaticResource bic}}"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" VerticalOptions="Center">
+                  <Label Text="{Binding Name}" Style="{DynamicResource LblCSTituloRojo}"/>
+                  <Label Text="{Binding Number}" Style="{DynamicResource LblCSDesc}"/>
+                </StackLayout>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <ListView x:Name="lvRegPagos" HasUnevenRows="True" IsGroupingEnabled="True" ItemsSource="{Binding grptipos}">
+        <ListView.GroupHeaderTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Padding="15,0,15,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Style="{DynamicResource StackFondoRojo}">
+                <Grid HorizontalOptions="FillAndExpand" Style="{DynamicResource GridFondoRojo}" >
+	                <Grid.ColumnDefinitions>
+	                  <ColumnDefinition Width="*"/>
+	                  <ColumnDefinition Width="150"/>
+	                </Grid.ColumnDefinitions>
+					          <Label Grid.Column="0" VerticalTextAlignment="Center" Text="{Binding Name}" HorizontalOptions="FillAndExpand" Style="{DynamicResource LblCSTituloW}" />
+					          <local:ImageButton Grid.Column="1" IsVisible="{Binding Tipo, Converter={StaticResource tarjetacnv}}" Clicked="AgregarNuevaT" Text="Agregar" Source="addw.png" Style="{DynamicResource ImgButtonBlancoRojo}" />
+				          </Grid>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="32"/>
+				</Grid.RowDefinitions>
+                <StackLayout IsVisible="{Binding idtipo, Converter={StaticResource saldocnv}}" Padding="5,5,5,5" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding tipo}" Style="{DynamicResource LblCSDesc}" />
+                    <Label Text="{Binding saldo, StringFormat='{}{0:c}'}"  Style="{DynamicResource LblCSDesc}" />
+                  </StackLayout>
+                </StackLayout>
+                <StackLayout IsVisible="{Binding idtipo, Converter={StaticResource tarjetacnv}}" Padding="5,5,5,5" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Image HeightRequest="30" VerticalOptions="Center" Aspect="AspectFill">
+                      <Image.Source>
+                        <FileImageSource File="{Binding imgtipo}" />
+                      </Image.Source>
+                    </Image>
+                    <Label Text="{Binding tipo}" Style="{DynamicResource LblCSDesc}" />
+                  </StackLayout>
+                </StackLayout>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+		  <ScrollView x:Name="svlistos" IsVisible="False" VerticalOptions="FillAndExpand">
+      		<local:EstamosListos x:Name="cvwlistos"></local:EstamosListos>
+		  </ScrollView>
+      <ScrollView x:Name="svNueva" IsVisible="False" VerticalOptions="FillAndExpand">
+        <local:VwNuevaTarjeta x:Name="cvwNueva"></local:VwNuevaTarjeta>
+      </ScrollView>
+      
+      <StackLayout x:Name="slButtonMain" IsVisible="True" Orientation="Horizontal" Spacing="0" HorizontalOptions="FillAndExpand">
+        <local:MTButton x:Name="btnAplicar" BorderRadius="0" HorizontalOptions="FillAndExpand" Text="Recargar" Style="{DynamicResource ButtonRojo}"/>
+      </StackLayout>
+      <StackLayout x:Name="slButtonSecondary" IsVisible="False" Orientation="Horizontal" Spacing="0" HorizontalOptions="FillAndExpand">
+        <local:MTButton x:Name="btnGuardarNuevaT" BorderRadius="0" HorizontalOptions="FillAndExpand" Text="Guardar" Style="{DynamicResource ButtonRojo}"/>
+        <local:MTButton x:Name="btnCancelar" BorderRadius="0" HorizontalOptions="FillAndExpand" Text="Cancelar" Style="{DynamicResource ButtonCancel}"/>
+      </StackLayout>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

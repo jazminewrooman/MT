@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasTicket.VwNuevaTarjeta"
+             xmlns:local="clr-namespace:MasTicket;">
+  <ContentView.Content>
+    <StackLayout x:Name="slNuevaTarj" Padding="5,5,5,10">
+      <Grid x:Name="grdMainCard" RowSpacing="2" ColumnSpacing="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="33*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="40"/>
+          <RowDefinition Height="40"/>
+          <RowDefinition Height="40"/>
+          <RowDefinition Height="40"/>
+          <RowDefinition Height="40"/>
+          <RowDefinition Height="40"/>
+          <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <local:ImageButton x:Name="btnLeerCard" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Scanear Tarjeta" Source="cameraw.png" Style="{DynamicResource ImgButtonBlancoRojo}"/>
+        <local:VwCambiarPais x:Name="cvwCambiarPais" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
+        <!--<local:CambiarCard x:Name ="cvwCambiarCard" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" />-->
+        <Entry x:Name="txtNumCard" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Placeholder="Numero de tarjeta" Text="" Keyboard="Numeric"/>
+        <Grid x:Name="grdCvvCard" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" RowSpacing="0">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+          </Grid.ColumnDefinitions>
+          <Entry x:Name="txtMes" Grid.Column="0" Placeholder="Mes" Text="" Keyboard="Numeric" />
+          <Entry x:Name="txtAno" Grid.Column="1" Placeholder="Año" Text="" Keyboard="Numeric" />
+          <BoxView Grid.Column="2" WidthRequest="20"/>
+          <Entry x:Name="txtCvc" Grid.Column="3" Placeholder="CVC" Text="" Keyboard="Numeric"/>
+        </Grid>
+        <Entry x:Name="txtTitular" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Placeholder="Nombre del titular" Text="" Keyboard="Text"/>
+      </Grid>
+    </StackLayout>
+  </ContentView.Content>
+</ContentView>

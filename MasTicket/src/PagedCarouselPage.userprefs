@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="PagedCarouselPage.Android/PagedCarouselPage.Android.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PagedCarouselPage/PagedCarouselPage.cs">
+    <Files>
+      <File FileName="PagedCarouselPageiOS/PagedCarouselPageRenderer.cs" Line="77" Column="31" />
+      <File FileName="PagedCarouselPage/PagedCarouselPage.cs" Line="60" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Samples.PagedCarouselPage.Sample.Android AndroidDesignerPreferredDevice="Nexus 4" />
+  <MonoDevelop.Ide.ItemProperties.Components.PagedCarouselPage.Android PreferredExecutionTarget="Android.Tablet" />
+</Properties>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+  x:Class="MasTicket.EstamosListos"
+  xmlns:local="clr-namespace:MasTicket;">
+	<ContentView.Content>
+		<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+			<Label HorizontalTextAlignment="Center" Text="Ya estas listo para recargar!" Style="{DynamicResource LblCSTitulo}" />
+			<Image Aspect="AspectFill" HorizontalOptions="FillAndExpand" HeightRequest="100" Source="chicoschat3.jpg" />
+      <Label HorizontalTextAlignment="Center" Text="Puedes cambiar cualquier dato (Telefono, Carrier, Monto, Medio de pago), solo vuelve a hacer click en el boton correspondiente. Si ya quieres recargar solo haz click en el boton de abajo" Style="{DynamicResource LblCSDesc}" />
+      <local:ImgAnim x:Name="imgFlecha" Source="down.png" Aspect="AspectFit" HeightRequest="30" WidthRequest="30" />
+    </StackLayout>
+	</ContentView.Content>
+</ContentView>

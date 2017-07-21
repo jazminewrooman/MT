@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasTicket.Chat">
+  <ContentPage.Content>
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="50"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <StackLayout Grid.Column="0" Padding="5,10,5,10" VerticalOptions="Center">
+        <Image HeightRequest="40" WidthRequest="40" VerticalOptions="Center" Aspect="AspectFit" Source="{Binding Photo, Converter={StaticResource bic}}"/>
+      </StackLayout>
+      <StackLayout Grid.Column="1" VerticalOptions="Center">
+        <Label Text="{Binding Name}" Style="{DynamicResource LblCSDesc}"/>
+        <Label Text="{Binding Number}" Style="{DynamicResource LblCSDesc}"/>
+      </StackLayout>
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>

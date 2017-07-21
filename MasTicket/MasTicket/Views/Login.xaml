@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		  	 xmlns:local="clr-namespace:MasTicket;"
+             x:Class="MasTicket.Login">
+  <ContentPage.Content Padding="0">
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+      <ScrollView VerticalOptions="EndAndExpand">
+		<StackLayout>
+		  <StackLayout Padding="0,0,0,0">
+	        <Image Aspect="AspectFit" HeightRequest="150" Source="asicompraslogo2.png"/>
+	      </StackLayout>
+
+			<Grid>
+			<Grid.RowDefinitions>
+	            <RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+						
+	        <Grid x:Name="grdMain" Grid.Row="0" IsVisible="true" VerticalOptions="Center" RowSpacing="10"  HorizontalOptions="FillAndExpand">
+	          <Grid.RowDefinitions>
+	            <RowDefinition Height="40"/>
+	            <RowDefinition Height="40"/>
+	            <RowDefinition Height="40"/>
+	            <RowDefinition Height="10"/>
+	            <RowDefinition Height="40"/>
+	            <RowDefinition Height="10"/>
+	          </Grid.RowDefinitions>
+	          <Grid.ColumnDefinitions>
+	            <ColumnDefinition Width="5*"/>
+	            <ColumnDefinition Width="90*"/>
+	            <ColumnDefinition Width="5*"/>
+	          </Grid.ColumnDefinitions>
+	          <local:ImageButton Source="facebookw.png" ButtonBackgroundColor="#3962A9" Grid.Row="0" Grid.Column="1" x:Name="btnFace" Text="Entrar con Facebook" />
+	          <local:ImageButton Source="google.png" ButtonBackgroundColor="#D95232" Grid.Row="1" Grid.Column="1" x:Name="btnGoogle" Text="Entrar con Google+" />
+	          <local:ImageButton Source="mailw.png" ButtonBackgroundColor="#553191" Grid.Row="2" Grid.Column="1" x:Name="btnReg" Text="Registrarme"/>
+	          <!--<BoxView HeightRequest="10" Color="Transparent" Grid.Row="3" Grid.Column="1" />-->
+	          <local:ImageButton Source="proflew.png" ButtonBackgroundColor="#8BC34A" Grid.Row="4" Grid.Column="1" x:Name="btnLogin" Text="Ya tengo cuenta"/>
+	          <!--<BoxView HeightRequest="10" Color="Transparent" Grid.Row="5" Grid.Column="1" />-->
+	        </Grid>
+
+			<Grid x:Name="grdLogin" Grid.Row="1" IsVisible="false" VerticalOptions="Center" RowSpacing="10"  HorizontalOptions="FillAndExpand">
+	          <Grid.RowDefinitions>
+	            <RowDefinition Height="40"/>
+	            <RowDefinition Height="40"/>
+	            <RowDefinition Height="40"/>
+	            <RowDefinition Height="40"/>
+				<RowDefinition Height="80"/>
+	          </Grid.RowDefinitions>
+	          <Grid.ColumnDefinitions>
+	            <ColumnDefinition Width="5*"/>
+	            <ColumnDefinition Width="90*"/>
+	            <ColumnDefinition Width="5*"/>
+	          </Grid.ColumnDefinitions>
+						
+	          <Entry Grid.Row="0" Grid.Column="1" x:Name="edtCorreo" Placeholder="Correo" Keyboard="Email">
+	            <!--<Entry.Behaviors>
+	              <local:EmailValidationBehavior x:Name="emvalNum" PropertyChanged="ValidEntries" />
+	            </Entry.Behaviors>-->
+	          </Entry>
+			  <local:VwCapturaNip x:Name="nipCapture" Text="Nip" Grid.Row="1" Grid.Column="1" >
+	            <!--<local:VwCapturaNip.Behaviors>
+	              <local:NipValidationBehavior x:Name="nipval" PropertyChanged="ValidEntries" />
+	            </local:VwCapturaNip.Behaviors>-->
+	          </local:VwCapturaNip>
+	          <local:ImageButton Source="proflew.png" ButtonBackgroundColor="#553191" Grid.Row="2" Grid.Column="1" x:Name="btnEntrar" Text="Entrar"/>
+	          <local:ImageButton Source="cross.png" ButtonBackgroundColor="#000000" Grid.Row="3" Grid.Column="1" x:Name="btnCancelar" Text="Cancelar"/>
+			  <Label x:Name="lblOlvide" HorizontalTextAlignment="Center" Text="Olvide mi NIP" TextColor="Purple" Grid.Row="4" Grid.Column="1" FontSize="12" />
+	        </Grid>
+		</Grid>
+		</StackLayout>
+      </ScrollView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

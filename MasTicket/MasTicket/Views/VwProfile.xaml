@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="MasTicket.VwProfile"
+	xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+	xmlns:local="clr-namespace:MasTicket;"
+	BackgroundColor="Transparent">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <local:ImgProfileConverter x:Key="imgconv"></local:ImgProfileConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentView.Content>
+  	<Grid x:Name="root">
+		<BoxView BackgroundColor="#e35102" HeightRequest="100" VerticalOptions="Start"/>
+
+		<StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Center" Padding="0,22,0,20">
+			<ContentView Padding="0,0,0,0">
+				<controls:CircleImage Source="{Binding picture, Converter={StaticResource imgconv}}"
+					HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFill" WidthRequest="90" HeightRequest="90" />
+			</ContentView>
+
+			<StackLayout Padding="0,12,0,0" HorizontalOptions="Start" VerticalOptions="Start">
+				<Label Text="{Binding name}" FontSize="Large" HorizontalOptions="StartAndExpand" />
+				<Label Text="{Binding email}" FontSize="Micro" HorizontalOptions="StartAndExpand" />
+			</StackLayout>
+		</StackLayout>
+	</Grid>
+  </ContentView.Content>
+</ContentView>

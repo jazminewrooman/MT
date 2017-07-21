@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetMontoMax">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMontoMaxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMontoMaxResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMonederoHab">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMonederoHabResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMonederoHabResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idusr" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAdminResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idusr" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCatalogo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idcatalogo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="where" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCatalogoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCatalogoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCodigoReferidoUsr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idusr" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCodigoReferidoUsrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCodigoReferidoUsrResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMontoMaxSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMontoMax" />
+  </wsdl:message>
+  <wsdl:message name="GetMontoMaxSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMontoMaxResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMonederoHabSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMonederoHab" />
+  </wsdl:message>
+  <wsdl:message name="GetMonederoHabSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMonederoHabResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAdmin" />
+  </wsdl:message>
+  <wsdl:message name="GetAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCatalogo" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCatalogoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCodigoReferidoUsrSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCodigoReferidoUsr" />
+  </wsdl:message>
+  <wsdl:message name="GetCodigoReferidoUsrSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCodigoReferidoUsrResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wscatalogosSoap">
+    <wsdl:operation name="GetMontoMax">
+      <wsdl:input message="tns:GetMontoMaxSoapIn" />
+      <wsdl:output message="tns:GetMontoMaxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonederoHab">
+      <wsdl:input message="tns:GetMonederoHabSoapIn" />
+      <wsdl:output message="tns:GetMonederoHabSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmin">
+      <wsdl:input message="tns:GetAdminSoapIn" />
+      <wsdl:output message="tns:GetAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input message="tns:GetUserSoapIn" />
+      <wsdl:output message="tns:GetUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogo">
+      <wsdl:input message="tns:GetCatalogoSoapIn" />
+      <wsdl:output message="tns:GetCatalogoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodigoReferidoUsr">
+      <wsdl:input message="tns:GetCodigoReferidoUsrSoapIn" />
+      <wsdl:output message="tns:GetCodigoReferidoUsrSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wscatalogosSoap" type="tns:wscatalogosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMontoMax">
+      <soap:operation soapAction="http://tempuri.org/GetMontoMax" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonederoHab">
+      <soap:operation soapAction="http://tempuri.org/GetMonederoHab" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmin">
+      <soap:operation soapAction="http://tempuri.org/GetAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogo">
+      <soap:operation soapAction="http://tempuri.org/GetCatalogo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodigoReferidoUsr">
+      <soap:operation soapAction="http://tempuri.org/GetCodigoReferidoUsr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wscatalogosSoap12" type="tns:wscatalogosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMontoMax">
+      <soap12:operation soapAction="http://tempuri.org/GetMontoMax" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonederoHab">
+      <soap12:operation soapAction="http://tempuri.org/GetMonederoHab" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmin">
+      <soap12:operation soapAction="http://tempuri.org/GetAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://tempuri.org/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogo">
+      <soap12:operation soapAction="http://tempuri.org/GetCatalogo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodigoReferidoUsr">
+      <soap12:operation soapAction="http://tempuri.org/GetCodigoReferidoUsr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wscatalogos">
+    <wsdl:port name="wscatalogosSoap" binding="tns:wscatalogosSoap">
+      <soap:address location="https://asicompras.com/wsac/wscatalogos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wscatalogosSoap12" binding="tns:wscatalogosSoap12">
+      <soap12:address location="https://asicompras.com/wsac/wscatalogos.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasTicket.Contactos"
+             xmlns:plugin="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:local="clr-namespace:MasTicket;">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <local:ByteArrayToImageSourceConverter x:Key="bic" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+      <StackLayout Padding="0,0,0,0">
+        <Image Aspect="AspectFill" HeightRequest="100" Source="chicoschat2.jpg"/>
+      </StackLayout>
+			
+      <SearchBar x:Name="srcBuscar" Placeholder="Buscar"></SearchBar>
+			
+      <ListView x:Name="lvContactos" HasUnevenRows="true" ItemsSource="{Binding Groups}" IsGroupingEnabled="true">
+        <ListView.GroupHeaderTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout VerticalOptions="Center" Padding="15,10,15,10" Style="{DynamicResource StackFondoRojo}">
+                <Label VerticalTextAlignment="Center" Text="{Binding letra}" Style="{DynamicResource LblCSTituloW}" />
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="50"/>
+                  <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0" Padding="5,10,5,10" VerticalOptions="Center">
+                  <plugin:CircleImage Style="{DynamicResource ImgContacto}" Source="{Binding Photo, Converter={StaticResource bic}}"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" VerticalOptions="Center">
+                  <Label Text="{Binding Name}" Style="{DynamicResource LblCSTituloRojo}"/>
+                  <Label Text="{Binding Number}" Style="{DynamicResource LblCSDesc}"/>
+                </StackLayout>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

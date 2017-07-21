@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetCatalogo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="idcatalogo" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" name="where" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetCatalogoResult" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviaMailRecordatorio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="idusuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviaMailRecordatorioResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="AltaRecargaProg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="r" type="tns:RecargaProg" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RecargaProg">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Recarga">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="diasmes" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Recarga">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="idrecarga" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idpais" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idoperadora" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idpaquete" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idformapago" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idtarjeta" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numerorecarga" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="contactorecarga" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="fecha" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="err" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="errVs" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="errRs" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TransactionID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PaymentID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idusuario" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ip" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="os" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="errvestadetallado" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="esprogramada" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AltaRecargaProgResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="AltaRecargaProgResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AltaRecarga">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="r" type="tns:Recarga" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AltaRecargaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="AltaRecargaResult" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AltaRecargaMonedero">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="r" type="tns:RecargaMonedero" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RecargaMonedero">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="idrecargamonedero" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idtarjeta" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="monto" type="xs:decimal" />
+      <xs:element minOccurs="1" maxOccurs="1" name="fecha" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="err" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="errVs" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TransactionID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PaymentID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idusuario" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ip" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="os" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AltaRecargaMonederoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="AltaRecargaMonederoResult" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AltaRecargaViaWallet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="r" type="tns:Recarga" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AltaRecargaViaWalletResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="AltaRecargaViaWalletResult" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AltaUsr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="u" type="tns:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Usuario">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="idusuario" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="numerocontacto" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="email" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="first_name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="last_name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="gender" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="picture" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="registrado" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idpais" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="nip" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="fechaalta" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AltaUsrResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="AltaUsrResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Mod_Usuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="u" type="tns:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Mod_UsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="Mod_UsuarioResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminaTarjeta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="idtarjeta" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminaTarjetaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="EliminaTarjetaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CargaVesta1aVez">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="r" type="tns:Recarga" />
+        <xs:element minOccurs="0" maxOccurs="1" name="rm" type="tns:RecargaMonedero" />
+        <xs:element minOccurs="0" maxOccurs="1" name="WebSessionID" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="t" type="tns:Tarjeta" />
+        <xs:element minOccurs="0" maxOccurs="1" name="cvv" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Tarjeta">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="idtarjeta" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idpais" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idemisor" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="permtoken" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Last4" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="titularFN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="titularLN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="calleynumero" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idciudad" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="codigopostal" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idestado" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="idusuario" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="expirationMMYY" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CargaVesta1aVezResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="CargaVesta1aVezResult" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CargaVesta2aVez">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="r" type="tns:Recarga" />
+        <xs:element minOccurs="0" maxOccurs="1" name="rm" type="tns:RecargaMonedero" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CargaVesta2aVezResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="CargaVesta2aVezResult" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

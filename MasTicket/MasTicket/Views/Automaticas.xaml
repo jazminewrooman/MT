@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasTicket.Automaticas"
+             xmlns:local="clr-namespace:MasTicket;">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <local:TipoTarjetaConverter x:Key="tarjconv"></local:TipoTarjetaConverter>
+      <local:DiasMesConverter x:Key="diasconv"></local:DiasMesConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+      <Grid Padding="5,5,5,5" Style="{DynamicResource GridFondoRojo}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="35*"/>
+          <ColumnDefinition Width="35*"/>
+          <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+        <Label Style="{DynamicResource LblCSDescW}" Grid.Row="0" Grid.Column="0" Text="Contacto" />
+        <Label Style="{DynamicResource LblCSDescW}" Grid.Row="0" Grid.Column="1" Text="Días del Mes" />
+        <Label Style="{DynamicResource LblCSDescW}" Grid.Row="1" Grid.Column="0" Text="Celular" />
+        <Label Style="{DynamicResource LblCSDescW}" Grid.Row="1" Grid.Column="1" Text="Medio de Pago" />
+      </Grid>
+      <ListView x:Name="lvAutomaticas" HasUnevenRows="true" ItemsSource="{Binding lsr}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.ContextActions>
+                <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Eliminar esta recarga automatica?" IsDestructive="True" />
+              </ViewCell.ContextActions>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="50*"/>
+                  <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Padding="15,10,15,10" Grid.Column="0" VerticalOptions="Center">
+                  <Label Text="{Binding contactorecarga}" Style="{DynamicResource LblCSTituloRojo}"/>
+                  <Label Text="{Binding numerorecarga}" Style="{DynamicResource LblCSDesc}"/>
+                </StackLayout>
+                <StackLayout x:name="slDias" Padding="15,10,15,10" Grid.Column="1" VerticalOptions="Center">
+                  <Label Text="{Binding diasmes, Converter={StaticResource diasconv}}" Style="{DynamicResource LblCSDesc}"/>
+                  <Label Text="{Binding idtarjeta, Converter={StaticResource tarjconv}}" Style="{DynamicResource LblCSDesc}"/>
+                </StackLayout>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

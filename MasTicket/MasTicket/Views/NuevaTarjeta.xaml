@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="MasTicket.NuevaTarjeta"
+	xmlns:local="clr-namespace:MasTicket;">
+
+  <ContentPage.Content Padding="0">
+    <StackLayout Spacing="0" VerticalOptions="FillAndExpand" Orientation="Vertical">
+			
+      <!--<BoxView HeightRequest="30" BackgroundColor="Transparent"/>-->
+			
+      <ScrollView VerticalOptions="FillAndExpand">
+		<StackLayout>
+	      <StackLayout Padding="0,0,0,0">
+	        <Image Aspect="AspectFill" HeightRequest="100" Source="tc.jpg"/>
+	      </StackLayout>
+					
+	      <Grid RowSpacing="0" ColumnSpacing="0">
+			  <Grid.RowDefinitions>
+		    	<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+		    	<RowDefinition Height="Auto"/>
+		      </Grid.RowDefinitions>
+					
+		      <Grid x:Name="grdPais" Padding="0,2,0,2" Grid.Row="0" RowSpacing="0">
+		        <Grid.RowDefinitions>
+		          <RowDefinition Height="Auto"/>
+		          <RowDefinition Height="Auto"/>
+		        </Grid.RowDefinitions>
+		        <Grid.ColumnDefinitions>
+		          <ColumnDefinition Width="3"/>
+		          <ColumnDefinition Width="Auto"/>
+		          <ColumnDefinition Width="*"/>
+		          <ColumnDefinition Width="8"/>
+		          <ColumnDefinition Width="2"/>
+		        </Grid.ColumnDefinitions>
+
+		        <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+		        <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+		          <Image HeightRequest="30" WidthRequest="30" Source="{Binding opcPais.Image}" VerticalOptions="Center" Aspect="AspectFill" />
+		        </StackLayout>
+		        <StackLayout Grid.Column="2" VerticalOptions="Center">
+		          <Label Text="{Binding opcPais.Titulo}" Style="{DynamicResource LblCSDesc}"/>
+		          <Label Text="{Binding opcPais.Desc}" Style="{DynamicResource LblCSTitulo}"/>
+		        </StackLayout>
+		        <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+		      </Grid>
+
+	          <Grid x:Name="grdTipo" Padding="0,2,0,2" Grid.Row="1" RowSpacing="0">
+	            <Grid.RowDefinitions>
+	              <RowDefinition Height="Auto"/>
+	              <RowDefinition Height="Auto"/>
+	            </Grid.RowDefinitions>
+	            <Grid.ColumnDefinitions>
+	              <ColumnDefinition Width="3"/>
+	              <ColumnDefinition Width="Auto"/>
+	              <ColumnDefinition Width="*"/>
+	              <ColumnDefinition Width="8"/>
+	              <ColumnDefinition Width="2"/>
+	            </Grid.ColumnDefinitions>
+
+	            <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+	            <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+	            	<Image HeightRequest="30" WidthRequest="30" Source="{Binding opcEmisor.Image}" VerticalOptions="Center" Aspect="AspectFill" />
+	            </StackLayout>
+	            <StackLayout Grid.Column="2" VerticalOptions="Center">
+	              <Label Text="{Binding opcEmisor.Titulo}" Style="{DynamicResource LblCSDesc}"/>
+	              <Label Text="{Binding opcEmisor.Desc}" Style="{DynamicResource LblCSTitulo}"/>
+	            </StackLayout>
+	            <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+	          </Grid>
+
+			  <Grid x:Name="grdScanner" Padding="0,2,0,2" Grid.Row="2" RowSpacing="0">
+	            <Grid.RowDefinitions>
+	              <RowDefinition Height="Auto"/>
+	            </Grid.RowDefinitions>
+	            <Grid.ColumnDefinitions>
+	              <ColumnDefinition Width="3"/>
+	              <ColumnDefinition Width="Auto"/>
+	              <ColumnDefinition Width="*"/>
+	              <ColumnDefinition Width="8"/>
+	              <ColumnDefinition Width="2"/>
+	            </Grid.ColumnDefinitions>
+	            <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+	            <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+	              <Image HeightRequest="30" WidthRequest="30" Source="{Binding opcScannear.Image}" VerticalOptions="Center" Aspect="AspectFill" />
+	            </StackLayout>
+	            <StackLayout Grid.Column="2" VerticalOptions="Center">
+	              <Label Text="{Binding opcScannear.Desc}" Style="{DynamicResource LblCSTitulo}"/>
+	            </StackLayout>
+	            <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+	          </Grid>
+
+	          <Grid x:Name="grdNumero" Padding="0,2,0,2" Grid.Row="3" RowSpacing="0">
+	            <Grid.RowDefinitions>
+	              <RowDefinition Height="Auto"/>
+	            </Grid.RowDefinitions>
+	            <Grid.ColumnDefinitions>
+	              <ColumnDefinition Width="3"/>
+	              <ColumnDefinition Width="Auto"/>
+	              <ColumnDefinition Width="*"/>
+	            </Grid.ColumnDefinitions>
+
+	            <BoxView Grid.Row="0" Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+	            <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+	              <Image HeightRequest="30" VerticalOptions="Center" Aspect="AspectFill">
+	                <Image.Source>
+	                  <FileImageSource File="{Binding opcNumero.Image}" />
+	                </Image.Source>
+	              </Image>
+	            </StackLayout>
+	            <StackLayout Grid.Column="2" VerticalOptions="Center">
+	              <local:EntryDone x:Name="txtNum" Placeholder="Número de tarjeta" Text="" Keyboard="Numeric">
+					<Entry.Behaviors>
+	      				<local:CardValidationBehavior x:Name="cardval" />
+						<local:MaxLengthValidator MaxLength="19" />
+	    			</Entry.Behaviors>
+	  			  </local:EntryDone>
+				  <Label VerticalTextAlignment="Center" x:Name="lblvalCard" Text="El número de tarjeta es obligatorio, tal cual aparece en la misma" Style="{DynamicResource LabelErrorEntry}" />
+	            </StackLayout>
+	          </Grid>
+
+	          <Grid x:Name="grdFecha" Padding="0,2,0,2" Grid.Row="4" RowSpacing="0">
+	            <Grid.RowDefinitions>
+	              <RowDefinition Height="Auto"/>
+	            </Grid.RowDefinitions>
+	            <Grid.ColumnDefinitions>
+	              <ColumnDefinition Width="3"/>
+	              <ColumnDefinition Width="Auto"/>
+	              <ColumnDefinition Width="*"/>
+	              <ColumnDefinition Width="8"/>
+	              <ColumnDefinition Width="2"/>
+	            </Grid.ColumnDefinitions>
+
+	            <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+	            <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+	              <Image HeightRequest="30" VerticalOptions="Center" Aspect="AspectFill">
+	                <Image.Source>
+	                  <FileImageSource File="{Binding opcFecha.Image}" />
+	                </Image.Source>
+	              </Image>
+	            </StackLayout>
+	            <StackLayout Grid.Column="2" VerticalOptions="Center">
+	              <Grid RowSpacing="0">
+	                <Grid.RowDefinitions>
+	                  <RowDefinition Height="Auto"/>
+	                </Grid.RowDefinitions>
+	                <Grid.ColumnDefinitions>
+	                  <ColumnDefinition Width="Auto"/>
+	                  <ColumnDefinition Width="Auto"/>
+	                  <ColumnDefinition Width="Auto"/>
+	                  <ColumnDefinition Width="Auto"/>
+	                </Grid.ColumnDefinitions>
+	                <local:EntryDone x:Name="txtMes" Grid.Column="0" Placeholder="Mes" Text="" Keyboard="Numeric">
+	                  <Entry.Behaviors>
+	                    <local:IntValidationBehavior x:Name="cardmesval" />
+	                    <local:MaxLengthValidator MaxLength="2" />
+	                  </Entry.Behaviors>
+	                </local:EntryDone>
+	                <local:EntryDone x:Name="txtAno" Grid.Column="1" Placeholder="Año" Text="" Keyboard="Numeric">
+	                  <Entry.Behaviors>
+	                    <local:IntValidationBehavior x:Name="cardyyval" />
+	                    <local:MaxLengthValidator MaxLength="2" />
+	                  </Entry.Behaviors>
+	                </local:EntryDone>
+	                <BoxView Grid.Column="2" WidthRequest="10"/>
+	                <local:EntryDone x:Name="txtCvc" Grid.Column="3" Placeholder="CVC" Text="" Keyboard="Numeric">
+	                  <Entry.Behaviors>
+	                    <local:IntValidationBehavior x:Name="cardcvcval" />
+	                    <local:MaxLengthValidator MaxLength="4" />
+	                  </Entry.Behaviors>
+	                </local:EntryDone>
+	              </Grid>
+				  <Label VerticalTextAlignment="Center" x:Name="lblvalMes" Text="Revise Mes y Año de validez, así como el CVC" Style="{DynamicResource LabelErrorEntry}" />
+				</StackLayout>
+			  </Grid>
+
+	          <Grid x:Name="grdTitular" Padding="0,2,0,2" Grid.Row="5" RowSpacing="0">
+	            <Grid.RowDefinitions>
+	              <RowDefinition Height="Auto"/>
+	            </Grid.RowDefinitions>
+	            <Grid.ColumnDefinitions>
+	              <ColumnDefinition Width="3"/>
+	              <ColumnDefinition Width="Auto"/>
+	              <ColumnDefinition Width="*"/>
+	            </Grid.ColumnDefinitions>
+	            <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+	            <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+	              <Image HeightRequest="30" VerticalOptions="Center" Aspect="AspectFill">
+	                <Image.Source>
+	                  <FileImageSource File="{Binding opcTitular.Image}" />
+	                </Image.Source>
+	              </Image>
+	            </StackLayout>
+	            <StackLayout Grid.Column="2" VerticalOptions="Center">
+	              <Grid RowSpacing="0">
+	                <Grid.ColumnDefinitions>
+	                  <ColumnDefinition Width="40*"/>
+	                  <ColumnDefinition Width="10"/>
+	                  <ColumnDefinition Width="40*"/>
+	                </Grid.ColumnDefinitions>
+	                <Entry Grid.Column="0" x:Name="txtTitularFN" Placeholder="Nombre(s)" Text="" Keyboard="Text">
+	                  	<Entry.Behaviors>
+							<local:EmptyValidationBehavior x:Name="valTitulFN" />
+						</Entry.Behaviors>
+	                </Entry>
+	                <BoxView Grid.Column="1" WidthRequest="10"/>
+	                <Entry Grid.Column="2" x:Name="txtTitularLN" Placeholder="Apellido(s)" Text="" Keyboard="Text">
+	                  	<Entry.Behaviors>
+							<local:EmptyValidationBehavior x:Name="valTitulLN" />
+						</Entry.Behaviors>
+	                </Entry>
+	              </Grid>
+	          	  <Label VerticalTextAlignment="Center" x:Name="lblvalTitular" Text="El nombre del titular es obligatorio, tal cual aparece en la tarjeta" Style="{DynamicResource LabelErrorEntry}" />
+	            </StackLayout>
+	          </Grid>				
+
+	          <Grid x:Name="grdCalle" Padding="0,2,0,2" Grid.Row="6" RowSpacing="0">
+	            <Grid.RowDefinitions>
+	              <RowDefinition Height="Auto"/>
+	            </Grid.RowDefinitions>
+	            <Grid.ColumnDefinitions>
+	              <ColumnDefinition Width="3"/>
+	              <ColumnDefinition Width="Auto"/>
+	              <ColumnDefinition Width="*"/>
+	            </Grid.ColumnDefinitions>
+	            <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+	            <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+	              <Image HeightRequest="30" VerticalOptions="Center" Aspect="AspectFill">
+	                <Image.Source>
+	                  <FileImageSource File="{Binding opcCalle.Image}" />
+	                </Image.Source>
+	              </Image>
+	            </StackLayout>
+	            <StackLayout Grid.Column="2" VerticalOptions="Center">
+	                <Entry x:Name="txtCalleNum" Placeholder="Calle y Número" Text="" Keyboard="Text">
+	                  	<Entry.Behaviors>
+							<local:EmptyValidationBehavior x:Name="valCalle" />
+						</Entry.Behaviors>
+	                </Entry>
+					<Label VerticalTextAlignment="Center" x:Name="lblvalCalle" Text="La dirección del titular es obligatoria, tal cual aparece en su estado de cuenta" Style="{DynamicResource LabelErrorEntry}" />
+	            </StackLayout>
+	          </Grid>
+
+	          <Grid x:Name="grdEstado" Padding="0,2,0,2" Grid.Row="7" RowSpacing="0">
+	            <Grid.RowDefinitions>
+	              <RowDefinition Height="Auto"/>
+	            </Grid.RowDefinitions>
+	            <Grid.ColumnDefinitions>
+	              <ColumnDefinition Width="3"/>
+	              <ColumnDefinition Width="Auto"/>
+	              <ColumnDefinition Width="*"/>
+	              <ColumnDefinition Width="8"/>
+	              <ColumnDefinition Width="2"/>
+	            </Grid.ColumnDefinitions>
+	            <BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+	            <StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+	              <Image HeightRequest="30" WidthRequest="30" Source="{Binding opcEstado.Image}" VerticalOptions="Center" Aspect="AspectFill" />
+	            </StackLayout>
+	            <StackLayout Grid.Column="2" VerticalOptions="Center">
+	              <Label Text="{Binding opcEstado.Titulo}" Style="{DynamicResource LblCSDesc}"/>
+	              <Label Text="{Binding opcEstado.Desc}" Style="{DynamicResource LblCSTitulo}"/>
+	            </StackLayout>
+	            <Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"></Image>
+	          </Grid>			
+
+			  <Grid x:Name="grdCiudad" Padding="0,2,0,2" Grid.Row="8" RowSpacing="0">
+			  	<Grid.RowDefinitions>
+				  	<RowDefinition Height="Auto"/>
+			  	</Grid.RowDefinitions>
+			  	<Grid.ColumnDefinitions>
+			  		<ColumnDefinition Width="3"/>
+			  		<ColumnDefinition Width="Auto"/>
+			  		<ColumnDefinition Width="*"/>
+			  		<ColumnDefinition Width="8"/>
+			  		<ColumnDefinition Width="2"/>
+			  	</Grid.ColumnDefinitions>
+			  	<BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+			  	<StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+			  		<Image HeightRequest="30" WidthRequest="30" Source="{Binding opcCiudad.Image}" VerticalOptions="Center" Aspect="AspectFill" />
+			  	</StackLayout>
+
+				<!--<StackLayout Grid.Column="2" VerticalOptions="Center">		
+					<local:OpcionButton x:Name="btnCiudad" Titulo="{Binding opcCiudad.Titulo}" Desc="{Binding opcCiudad.Desc}" Style="{DynamicResource OpcButton}"/>			
+					<Label VerticalTextAlignment="Center" x:Name="lblvalGeo" Text="Pais, estado, ciudad son obligatorios y tal cual aparece en su estado de cuenta" Style="{DynamicResource LabelErrorEntry}" />
+				</StackLayout>-->
+			  	<StackLayout Grid.Column="2" VerticalOptions="Center">
+			  		<Label Text="{Binding opcCiudad.Titulo}" Style="{DynamicResource LblCSDesc}"/>
+			  		<Label Text="{Binding opcCiudad.Desc}" Style="{DynamicResource LblCSTitulo}"/>
+					<Label VerticalTextAlignment="Center" x:Name="lblvalGeo" Text="País, estado, ciudad son obligatorios, tal cual aparecen en su estado de cuenta" Style="{DynamicResource LabelErrorEntry}" />
+			  	</StackLayout>
+			  	<Image Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="40" WidthRequest="30" Source="tap.png"/>
+			  </Grid>
+						
+			  <Grid Grid.Row="9" Padding="0,2,0,2" RowSpacing="0">
+			  	<Grid.RowDefinitions>
+			  		<RowDefinition Height="Auto"/>
+			  	</Grid.RowDefinitions>
+			  	<Grid.ColumnDefinitions>
+			  		<ColumnDefinition Width="3"/>
+			  		<ColumnDefinition Width="Auto"/>
+			  		<ColumnDefinition Width="*"/>
+			  	</Grid.ColumnDefinitions>
+			  	<BoxView Grid.Column="0" Style="{DynamicResource BoxVCS}"/>
+			  	<StackLayout Grid.Column="1" Padding="5,5,5,5" VerticalOptions="Center">
+			  		<Image HeightRequest="30" VerticalOptions="Center" Aspect="AspectFill">
+			  		<Image.Source>
+			  			<FileImageSource File="{Binding opcCP.Image}" />
+			  		</Image.Source>
+			  		</Image>
+			  	</StackLayout>
+			  	<StackLayout Grid.Column="2" VerticalOptions="Center">
+			  		<local:EntryDone x:Name="txtCP" Placeholder="Codigo Postal" Text="" Keyboard="Numeric">
+			  			<Entry.Behaviors>
+			  				<local:IntValidationBehavior x:Name="cpval" />
+			  				<local:MaxLengthValidator MaxLength="5" />
+						</Entry.Behaviors>
+					</local:EntryDone>
+					<Label VerticalTextAlignment="Center" x:Name="lblvalCP" Text="El código postal del titular es obligatorio, tal cual aparece en su estado de cuenta" Style="{DynamicResource LabelErrorEntry}" />
+				</StackLayout>
+			  </Grid>
+		  </Grid>
+		</StackLayout>
+	  </ScrollView>
+			
+      <StackLayout Style="{DynamicResource StackBoton}">
+        <local:MTButton IsEnabled="false" x:Name="btnGuardar" Text="Guardar esta tarjeta" Style="{DynamicResource ButtonRojo}"/>
+      </StackLayout>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
