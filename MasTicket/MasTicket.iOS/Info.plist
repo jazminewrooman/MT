@@ -10,7 +10,7 @@
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
-		<false/>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>facebook.com</key>
@@ -28,13 +28,6 @@
 				<false/>
 			</dict>
 			<key>akamaihd.net</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-			<key>asicompras.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
