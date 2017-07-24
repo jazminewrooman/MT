@@ -79,6 +79,12 @@ namespace MasTicket
 				}
 				btnLogin.Clicked += async (sender, ea) =>
 				{
+                    int idusrreferido = App.WSc.ExisteCodigoReferidoUsr(txtCodigo.Text.Trim());
+                    if (!String.IsNullOrEmpty(txtCodigo.Text.Trim()) && idusrreferido == 0)
+                    {
+                        await DisplayAlert("Error", "El codigo promocional que capturo es incorrecto, revise por favor", "OK");
+                        return;
+                    }
 					if (!check.ValidaNip(nipCapture.Nip))
 						await DisplayAlert("Error", "Revise el NIP. (No se permiten consecutivos ni que todos los digitos sean iguales)", "OK");
 					else {
@@ -176,7 +182,7 @@ namespace MasTicket
 								});
 							};
 							App.WS.AltaUsrCompleted += auc;
-							App.WS.AltaUsrAsync(ConvertUsuarioToTemp(App.usr));
+                            App.WS.AltaUsrAsync(ConvertUsuarioToTemp(App.usr), (!String.IsNullOrEmpty(txtCodigo.Text.Trim()) ? idusrreferido : 0));
 						}
 					}
 				};

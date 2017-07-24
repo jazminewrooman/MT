@@ -535,6 +535,8 @@ namespace tempuri.org
         
         private System.DateTime fechaaltaField;
         
+        private string verificacionField;
+        
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int idusuario
         {
@@ -688,6 +690,19 @@ namespace tempuri.org
             set
             {
                 this.fechaaltaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
+        public string verificacion
+        {
+            get
+            {
+                return this.verificacionField;
+            }
+            set
+            {
+                this.verificacionField = value;
             }
         }
     }
@@ -1138,10 +1153,45 @@ public interface Isac
     
     ExportaRepConcResponse EndExportaRepConc(System.IAsyncResult result);
     
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/Isac/ExportaRepUsr", ReplyAction="http://tempuri.org/Isac/ExportaRepUsrResponse")]
+    System.IAsyncResult BeginExportaRepUsr(ExportaRepUsrRequest request, System.AsyncCallback callback, object asyncState);
+    
+    ExportaRepUsrResponse EndExportaRepUsr(System.IAsyncResult result);
+    
     [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/Isac/EnviaReporteConciliacion", ReplyAction="http://tempuri.org/Isac/EnviaReporteConciliacionResponse")]
     System.IAsyncResult BeginEnviaReporteConciliacion(EnviaReporteConciliacionRequest request, System.AsyncCallback callback, object asyncState);
     
     EnviaReporteConciliacionResponse EndEnviaReporteConciliacion(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/Isac/EnviaReporteUsuarios", ReplyAction="http://tempuri.org/Isac/EnviaReporteUsuariosResponse")]
+    System.IAsyncResult BeginEnviaReporteUsuarios(System.AsyncCallback callback, object asyncState);
+    
+    void EndEnviaReporteUsuarios(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/Isac/GetUsers", ReplyAction="http://tempuri.org/Isac/GetUsersResponse")]
+    System.IAsyncResult BeginGetUsers(GetUsersRequest request, System.AsyncCallback callback, object asyncState);
+    
+    GetUsersResponse EndGetUsers(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/Isac/GetAClientes", ReplyAction="http://tempuri.org/Isac/GetAClientesResponse")]
+    System.IAsyncResult BeginGetAClientes(GetAClientesRequest request, System.AsyncCallback callback, object asyncState);
+    
+    GetAClientesResponse EndGetAClientes(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/Isac/verificaCliente", ReplyAction="http://tempuri.org/Isac/verificaClienteResponse")]
+    System.IAsyncResult BeginverificaCliente(verificaClienteRequest request, System.AsyncCallback callback, object asyncState);
+    
+    verificaClienteResponse EndverificaCliente(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/Isac/GetMesDatos", ReplyAction="http://tempuri.org/Isac/GetMesDatosResponse")]
+    System.IAsyncResult BeginGetMesDatos(GetMesDatosRequest request, System.AsyncCallback callback, object asyncState);
+    
+    GetMesDatosResponse EndGetMesDatos(System.IAsyncResult result);
+    
+    [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/Isac/GetDiaDatos", ReplyAction="http://tempuri.org/Isac/GetDiaDatosResponse")]
+    System.IAsyncResult BeginGetDiaDatos(GetDiaDatosRequest request, System.AsyncCallback callback, object asyncState);
+    
+    GetDiaDatosResponse EndGetDiaDatos(System.IAsyncResult result);
 }
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1754,13 +1804,17 @@ public partial class AltaUsrRequestBody
     [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
     public tempuri.org.Usuario u;
     
+    [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+    public int idusrreferido;
+    
     public AltaUsrRequestBody()
     {
     }
     
-    public AltaUsrRequestBody(tempuri.org.Usuario u)
+    public AltaUsrRequestBody(tempuri.org.Usuario u, int idusrreferido)
     {
         this.u = u;
+        this.idusrreferido = idusrreferido;
     }
 }
 
@@ -2480,6 +2534,78 @@ public partial class ExportaRepConcResponseBody
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
 [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+public partial class ExportaRepUsrRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Name="ExportaRepUsr", Namespace="http://tempuri.org/", Order=0)]
+    public ExportaRepUsrRequestBody Body;
+    
+    public ExportaRepUsrRequest()
+    {
+    }
+    
+    public ExportaRepUsrRequest(ExportaRepUsrRequestBody Body)
+    {
+        this.Body = Body;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.Runtime.Serialization.DataContractAttribute()]
+public partial class ExportaRepUsrRequestBody
+{
+    
+    public ExportaRepUsrRequestBody()
+    {
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+public partial class ExportaRepUsrResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Name="ExportaRepUsrResponse", Namespace="http://tempuri.org/", Order=0)]
+    public ExportaRepUsrResponseBody Body;
+    
+    public ExportaRepUsrResponse()
+    {
+    }
+    
+    public ExportaRepUsrResponse(ExportaRepUsrResponseBody Body)
+    {
+        this.Body = Body;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+public partial class ExportaRepUsrResponseBody
+{
+    
+    [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+    public byte[] ExportaRepUsrResult;
+    
+    public ExportaRepUsrResponseBody()
+    {
+    }
+    
+    public ExportaRepUsrResponseBody(byte[] ExportaRepUsrResult)
+    {
+        this.ExportaRepUsrResult = ExportaRepUsrResult;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
 public partial class EnviaReporteConciliacionRequest
 {
     
@@ -2549,6 +2675,398 @@ public partial class EnviaReporteConciliacionResponseBody
     
     public EnviaReporteConciliacionResponseBody()
     {
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+public partial class GetUsersRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Name="GetUsers", Namespace="http://tempuri.org/", Order=0)]
+    public GetUsersRequestBody Body;
+    
+    public GetUsersRequest()
+    {
+    }
+    
+    public GetUsersRequest(GetUsersRequestBody Body)
+    {
+        this.Body = Body;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.Runtime.Serialization.DataContractAttribute()]
+public partial class GetUsersRequestBody
+{
+    
+    public GetUsersRequestBody()
+    {
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+public partial class GetUsersResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Name="GetUsersResponse", Namespace="http://tempuri.org/", Order=0)]
+    public GetUsersResponseBody Body;
+    
+    public GetUsersResponse()
+    {
+    }
+    
+    public GetUsersResponse(GetUsersResponseBody Body)
+    {
+        this.Body = Body;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+public partial class GetUsersResponseBody
+{
+    
+    [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+    public string GetUsersResult;
+    
+    public GetUsersResponseBody()
+    {
+    }
+    
+    public GetUsersResponseBody(string GetUsersResult)
+    {
+        this.GetUsersResult = GetUsersResult;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+public partial class GetAClientesRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAClientes", Namespace="http://tempuri.org/", Order=0)]
+    public GetAClientesRequestBody Body;
+    
+    public GetAClientesRequest()
+    {
+    }
+    
+    public GetAClientesRequest(GetAClientesRequestBody Body)
+    {
+        this.Body = Body;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+public partial class GetAClientesRequestBody
+{
+    
+    [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+    public int tipo;
+    
+    public GetAClientesRequestBody()
+    {
+    }
+    
+    public GetAClientesRequestBody(int tipo)
+    {
+        this.tipo = tipo;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+public partial class GetAClientesResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAClientesResponse", Namespace="http://tempuri.org/", Order=0)]
+    public GetAClientesResponseBody Body;
+    
+    public GetAClientesResponse()
+    {
+    }
+    
+    public GetAClientesResponse(GetAClientesResponseBody Body)
+    {
+        this.Body = Body;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+public partial class GetAClientesResponseBody
+{
+    
+    [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+    public string GetAClientesResult;
+    
+    public GetAClientesResponseBody()
+    {
+    }
+    
+    public GetAClientesResponseBody(string GetAClientesResult)
+    {
+        this.GetAClientesResult = GetAClientesResult;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+public partial class verificaClienteRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Name="verificaCliente", Namespace="http://tempuri.org/", Order=0)]
+    public verificaClienteRequestBody Body;
+    
+    public verificaClienteRequest()
+    {
+    }
+    
+    public verificaClienteRequest(verificaClienteRequestBody Body)
+    {
+        this.Body = Body;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+public partial class verificaClienteRequestBody
+{
+    
+    [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+    public string verif;
+    
+    public verificaClienteRequestBody()
+    {
+    }
+    
+    public verificaClienteRequestBody(string verif)
+    {
+        this.verif = verif;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+public partial class verificaClienteResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Name="verificaClienteResponse", Namespace="http://tempuri.org/", Order=0)]
+    public verificaClienteResponseBody Body;
+    
+    public verificaClienteResponse()
+    {
+    }
+    
+    public verificaClienteResponse(verificaClienteResponseBody Body)
+    {
+        this.Body = Body;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+public partial class verificaClienteResponseBody
+{
+    
+    [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+    public bool verificaClienteResult;
+    
+    public verificaClienteResponseBody()
+    {
+    }
+    
+    public verificaClienteResponseBody(bool verificaClienteResult)
+    {
+        this.verificaClienteResult = verificaClienteResult;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+public partial class GetMesDatosRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Name="GetMesDatos", Namespace="http://tempuri.org/", Order=0)]
+    public GetMesDatosRequestBody Body;
+    
+    public GetMesDatosRequest()
+    {
+    }
+    
+    public GetMesDatosRequest(GetMesDatosRequestBody Body)
+    {
+        this.Body = Body;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+public partial class GetMesDatosRequestBody
+{
+    
+    [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+    public int tipo;
+    
+    public GetMesDatosRequestBody()
+    {
+    }
+    
+    public GetMesDatosRequestBody(int tipo)
+    {
+        this.tipo = tipo;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+public partial class GetMesDatosResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Name="GetMesDatosResponse", Namespace="http://tempuri.org/", Order=0)]
+    public GetMesDatosResponseBody Body;
+    
+    public GetMesDatosResponse()
+    {
+    }
+    
+    public GetMesDatosResponse(GetMesDatosResponseBody Body)
+    {
+        this.Body = Body;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+public partial class GetMesDatosResponseBody
+{
+    
+    [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+    public string GetMesDatosResult;
+    
+    public GetMesDatosResponseBody()
+    {
+    }
+    
+    public GetMesDatosResponseBody(string GetMesDatosResult)
+    {
+        this.GetMesDatosResult = GetMesDatosResult;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+public partial class GetDiaDatosRequest
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDiaDatos", Namespace="http://tempuri.org/", Order=0)]
+    public GetDiaDatosRequestBody Body;
+    
+    public GetDiaDatosRequest()
+    {
+    }
+    
+    public GetDiaDatosRequest(GetDiaDatosRequestBody Body)
+    {
+        this.Body = Body;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+public partial class GetDiaDatosRequestBody
+{
+    
+    [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+    public int tipo;
+    
+    public GetDiaDatosRequestBody()
+    {
+    }
+    
+    public GetDiaDatosRequestBody(int tipo)
+    {
+        this.tipo = tipo;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+public partial class GetDiaDatosResponse
+{
+    
+    [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDiaDatosResponse", Namespace="http://tempuri.org/", Order=0)]
+    public GetDiaDatosResponseBody Body;
+    
+    public GetDiaDatosResponse()
+    {
+    }
+    
+    public GetDiaDatosResponse(GetDiaDatosResponseBody Body)
+    {
+        this.Body = Body;
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+[System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+public partial class GetDiaDatosResponseBody
+{
+    
+    [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+    public string GetDiaDatosResult;
+    
+    public GetDiaDatosResponseBody()
+    {
+    }
+    
+    public GetDiaDatosResponseBody(string GetDiaDatosResult)
+    {
+        this.GetDiaDatosResult = GetDiaDatosResult;
     }
 }
 
@@ -3042,6 +3560,144 @@ public partial class ExportaRepConcCompletedEventArgs : System.ComponentModel.As
 
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class ExportaRepUsrCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public ExportaRepUsrCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public byte[] Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((byte[])(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class GetUsersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public GetUsersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public string Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((string)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class GetAClientesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public GetAClientesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public string Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((string)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class verificaClienteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public verificaClienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public bool Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((bool)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class GetMesDatosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public GetMesDatosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public string Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((string)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+public partial class GetDiaDatosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+{
+    
+    private object[] results;
+    
+    public GetDiaDatosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState)
+    {
+        this.results = results;
+    }
+    
+    public string Result
+    {
+        get
+        {
+            base.RaiseExceptionIfNecessary();
+            return ((string)(this.results[0]));
+        }
+    }
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 public partial class IsacClient : System.ServiceModel.ClientBase<Isac>, Isac
 {
     
@@ -3177,11 +3833,53 @@ public partial class IsacClient : System.ServiceModel.ClientBase<Isac>, Isac
     
     private System.Threading.SendOrPostCallback onExportaRepConcCompletedDelegate;
     
+    private BeginOperationDelegate onBeginExportaRepUsrDelegate;
+    
+    private EndOperationDelegate onEndExportaRepUsrDelegate;
+    
+    private System.Threading.SendOrPostCallback onExportaRepUsrCompletedDelegate;
+    
     private BeginOperationDelegate onBeginEnviaReporteConciliacionDelegate;
     
     private EndOperationDelegate onEndEnviaReporteConciliacionDelegate;
     
     private System.Threading.SendOrPostCallback onEnviaReporteConciliacionCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginEnviaReporteUsuariosDelegate;
+    
+    private EndOperationDelegate onEndEnviaReporteUsuariosDelegate;
+    
+    private System.Threading.SendOrPostCallback onEnviaReporteUsuariosCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginGetUsersDelegate;
+    
+    private EndOperationDelegate onEndGetUsersDelegate;
+    
+    private System.Threading.SendOrPostCallback onGetUsersCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginGetAClientesDelegate;
+    
+    private EndOperationDelegate onEndGetAClientesDelegate;
+    
+    private System.Threading.SendOrPostCallback onGetAClientesCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginverificaClienteDelegate;
+    
+    private EndOperationDelegate onEndverificaClienteDelegate;
+    
+    private System.Threading.SendOrPostCallback onverificaClienteCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginGetMesDatosDelegate;
+    
+    private EndOperationDelegate onEndGetMesDatosDelegate;
+    
+    private System.Threading.SendOrPostCallback onGetMesDatosCompletedDelegate;
+    
+    private BeginOperationDelegate onBeginGetDiaDatosDelegate;
+    
+    private EndOperationDelegate onEndGetDiaDatosDelegate;
+    
+    private System.Threading.SendOrPostCallback onGetDiaDatosCompletedDelegate;
     
     private BeginOperationDelegate onBeginOpenDelegate;
     
@@ -3292,7 +3990,21 @@ public partial class IsacClient : System.ServiceModel.ClientBase<Isac>, Isac
     
     public event System.EventHandler<ExportaRepConcCompletedEventArgs> ExportaRepConcCompleted;
     
+    public event System.EventHandler<ExportaRepUsrCompletedEventArgs> ExportaRepUsrCompleted;
+    
     public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> EnviaReporteConciliacionCompleted;
+    
+    public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> EnviaReporteUsuariosCompleted;
+    
+    public event System.EventHandler<GetUsersCompletedEventArgs> GetUsersCompleted;
+    
+    public event System.EventHandler<GetAClientesCompletedEventArgs> GetAClientesCompleted;
+    
+    public event System.EventHandler<verificaClienteCompletedEventArgs> verificaClienteCompleted;
+    
+    public event System.EventHandler<GetMesDatosCompletedEventArgs> GetMesDatosCompleted;
+    
+    public event System.EventHandler<GetDiaDatosCompletedEventArgs> GetDiaDatosCompleted;
     
     public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
     
@@ -3997,11 +4709,12 @@ public partial class IsacClient : System.ServiceModel.ClientBase<Isac>, Isac
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    private System.IAsyncResult BeginAltaUsr(tempuri.org.Usuario u, System.AsyncCallback callback, object asyncState)
+    private System.IAsyncResult BeginAltaUsr(tempuri.org.Usuario u, int idusrreferido, System.AsyncCallback callback, object asyncState)
     {
         AltaUsrRequest inValue = new AltaUsrRequest();
         inValue.Body = new AltaUsrRequestBody();
         inValue.Body.u = u;
+        inValue.Body.idusrreferido = idusrreferido;
         return ((Isac)(this)).BeginAltaUsr(inValue, callback, asyncState);
     }
     
@@ -4021,7 +4734,8 @@ public partial class IsacClient : System.ServiceModel.ClientBase<Isac>, Isac
     private System.IAsyncResult OnBeginAltaUsr(object[] inValues, System.AsyncCallback callback, object asyncState)
     {
         tempuri.org.Usuario u = ((tempuri.org.Usuario)(inValues[0]));
-        return this.BeginAltaUsr(u, callback, asyncState);
+        int idusrreferido = ((int)(inValues[1]));
+        return this.BeginAltaUsr(u, idusrreferido, callback, asyncState);
     }
     
     private object[] OnEndAltaUsr(System.IAsyncResult result)
@@ -4040,12 +4754,12 @@ public partial class IsacClient : System.ServiceModel.ClientBase<Isac>, Isac
         }
     }
     
-    public void AltaUsrAsync(tempuri.org.Usuario u)
+    public void AltaUsrAsync(tempuri.org.Usuario u, int idusrreferido)
     {
-        this.AltaUsrAsync(u, null);
+        this.AltaUsrAsync(u, idusrreferido, null);
     }
     
-    public void AltaUsrAsync(tempuri.org.Usuario u, object userState)
+    public void AltaUsrAsync(tempuri.org.Usuario u, int idusrreferido, object userState)
     {
         if ((this.onBeginAltaUsrDelegate == null))
         {
@@ -4060,7 +4774,8 @@ public partial class IsacClient : System.ServiceModel.ClientBase<Isac>, Isac
             this.onAltaUsrCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAltaUsrCompleted);
         }
         base.InvokeAsync(this.onBeginAltaUsrDelegate, new object[] {
-                    u}, this.onEndAltaUsrDelegate, this.onAltaUsrCompletedDelegate, userState);
+                    u,
+                    idusrreferido}, this.onEndAltaUsrDelegate, this.onAltaUsrCompletedDelegate, userState);
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4843,6 +5558,76 @@ public partial class IsacClient : System.ServiceModel.ClientBase<Isac>, Isac
     }
     
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult Isac.BeginExportaRepUsr(ExportaRepUsrRequest request, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginExportaRepUsr(request, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    private System.IAsyncResult BeginExportaRepUsr(System.AsyncCallback callback, object asyncState)
+    {
+        ExportaRepUsrRequest inValue = new ExportaRepUsrRequest();
+        inValue.Body = new ExportaRepUsrRequestBody();
+        return ((Isac)(this)).BeginExportaRepUsr(inValue, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    ExportaRepUsrResponse Isac.EndExportaRepUsr(System.IAsyncResult result)
+    {
+        return base.Channel.EndExportaRepUsr(result);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    private byte[] EndExportaRepUsr(System.IAsyncResult result)
+    {
+        ExportaRepUsrResponse retVal = ((Isac)(this)).EndExportaRepUsr(result);
+        return retVal.Body.ExportaRepUsrResult;
+    }
+    
+    private System.IAsyncResult OnBeginExportaRepUsr(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        return this.BeginExportaRepUsr(callback, asyncState);
+    }
+    
+    private object[] OnEndExportaRepUsr(System.IAsyncResult result)
+    {
+        byte[] retVal = this.EndExportaRepUsr(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnExportaRepUsrCompleted(object state)
+    {
+        if ((this.ExportaRepUsrCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.ExportaRepUsrCompleted(this, new ExportaRepUsrCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void ExportaRepUsrAsync()
+    {
+        this.ExportaRepUsrAsync(null);
+    }
+    
+    public void ExportaRepUsrAsync(object userState)
+    {
+        if ((this.onBeginExportaRepUsrDelegate == null))
+        {
+            this.onBeginExportaRepUsrDelegate = new BeginOperationDelegate(this.OnBeginExportaRepUsr);
+        }
+        if ((this.onEndExportaRepUsrDelegate == null))
+        {
+            this.onEndExportaRepUsrDelegate = new EndOperationDelegate(this.OnEndExportaRepUsr);
+        }
+        if ((this.onExportaRepUsrCompletedDelegate == null))
+        {
+            this.onExportaRepUsrCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnExportaRepUsrCompleted);
+        }
+        base.InvokeAsync(this.onBeginExportaRepUsrDelegate, null, this.onEndExportaRepUsrDelegate, this.onExportaRepUsrCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     System.IAsyncResult Isac.BeginEnviaReporteConciliacion(EnviaReporteConciliacionRequest request, System.AsyncCallback callback, object asyncState)
     {
         return base.Channel.BeginEnviaReporteConciliacion(request, callback, asyncState);
@@ -4914,6 +5699,422 @@ public partial class IsacClient : System.ServiceModel.ClientBase<Isac>, Isac
         base.InvokeAsync(this.onBeginEnviaReporteConciliacionDelegate, new object[] {
                     fini,
                     ffin}, this.onEndEnviaReporteConciliacionDelegate, this.onEnviaReporteConciliacionCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult Isac.BeginEnviaReporteUsuarios(System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginEnviaReporteUsuarios(callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    void Isac.EndEnviaReporteUsuarios(System.IAsyncResult result)
+    {
+        base.Channel.EndEnviaReporteUsuarios(result);
+    }
+    
+    private System.IAsyncResult OnBeginEnviaReporteUsuarios(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        return ((Isac)(this)).BeginEnviaReporteUsuarios(callback, asyncState);
+    }
+    
+    private object[] OnEndEnviaReporteUsuarios(System.IAsyncResult result)
+    {
+        ((Isac)(this)).EndEnviaReporteUsuarios(result);
+        return null;
+    }
+    
+    private void OnEnviaReporteUsuariosCompleted(object state)
+    {
+        if ((this.EnviaReporteUsuariosCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.EnviaReporteUsuariosCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void EnviaReporteUsuariosAsync()
+    {
+        this.EnviaReporteUsuariosAsync(null);
+    }
+    
+    public void EnviaReporteUsuariosAsync(object userState)
+    {
+        if ((this.onBeginEnviaReporteUsuariosDelegate == null))
+        {
+            this.onBeginEnviaReporteUsuariosDelegate = new BeginOperationDelegate(this.OnBeginEnviaReporteUsuarios);
+        }
+        if ((this.onEndEnviaReporteUsuariosDelegate == null))
+        {
+            this.onEndEnviaReporteUsuariosDelegate = new EndOperationDelegate(this.OnEndEnviaReporteUsuarios);
+        }
+        if ((this.onEnviaReporteUsuariosCompletedDelegate == null))
+        {
+            this.onEnviaReporteUsuariosCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnEnviaReporteUsuariosCompleted);
+        }
+        base.InvokeAsync(this.onBeginEnviaReporteUsuariosDelegate, null, this.onEndEnviaReporteUsuariosDelegate, this.onEnviaReporteUsuariosCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult Isac.BeginGetUsers(GetUsersRequest request, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginGetUsers(request, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    private System.IAsyncResult BeginGetUsers(System.AsyncCallback callback, object asyncState)
+    {
+        GetUsersRequest inValue = new GetUsersRequest();
+        inValue.Body = new GetUsersRequestBody();
+        return ((Isac)(this)).BeginGetUsers(inValue, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    GetUsersResponse Isac.EndGetUsers(System.IAsyncResult result)
+    {
+        return base.Channel.EndGetUsers(result);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    private string EndGetUsers(System.IAsyncResult result)
+    {
+        GetUsersResponse retVal = ((Isac)(this)).EndGetUsers(result);
+        return retVal.Body.GetUsersResult;
+    }
+    
+    private System.IAsyncResult OnBeginGetUsers(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        return this.BeginGetUsers(callback, asyncState);
+    }
+    
+    private object[] OnEndGetUsers(System.IAsyncResult result)
+    {
+        string retVal = this.EndGetUsers(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnGetUsersCompleted(object state)
+    {
+        if ((this.GetUsersCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.GetUsersCompleted(this, new GetUsersCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void GetUsersAsync()
+    {
+        this.GetUsersAsync(null);
+    }
+    
+    public void GetUsersAsync(object userState)
+    {
+        if ((this.onBeginGetUsersDelegate == null))
+        {
+            this.onBeginGetUsersDelegate = new BeginOperationDelegate(this.OnBeginGetUsers);
+        }
+        if ((this.onEndGetUsersDelegate == null))
+        {
+            this.onEndGetUsersDelegate = new EndOperationDelegate(this.OnEndGetUsers);
+        }
+        if ((this.onGetUsersCompletedDelegate == null))
+        {
+            this.onGetUsersCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUsersCompleted);
+        }
+        base.InvokeAsync(this.onBeginGetUsersDelegate, null, this.onEndGetUsersDelegate, this.onGetUsersCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult Isac.BeginGetAClientes(GetAClientesRequest request, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginGetAClientes(request, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    private System.IAsyncResult BeginGetAClientes(int tipo, System.AsyncCallback callback, object asyncState)
+    {
+        GetAClientesRequest inValue = new GetAClientesRequest();
+        inValue.Body = new GetAClientesRequestBody();
+        inValue.Body.tipo = tipo;
+        return ((Isac)(this)).BeginGetAClientes(inValue, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    GetAClientesResponse Isac.EndGetAClientes(System.IAsyncResult result)
+    {
+        return base.Channel.EndGetAClientes(result);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    private string EndGetAClientes(System.IAsyncResult result)
+    {
+        GetAClientesResponse retVal = ((Isac)(this)).EndGetAClientes(result);
+        return retVal.Body.GetAClientesResult;
+    }
+    
+    private System.IAsyncResult OnBeginGetAClientes(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        int tipo = ((int)(inValues[0]));
+        return this.BeginGetAClientes(tipo, callback, asyncState);
+    }
+    
+    private object[] OnEndGetAClientes(System.IAsyncResult result)
+    {
+        string retVal = this.EndGetAClientes(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnGetAClientesCompleted(object state)
+    {
+        if ((this.GetAClientesCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.GetAClientesCompleted(this, new GetAClientesCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void GetAClientesAsync(int tipo)
+    {
+        this.GetAClientesAsync(tipo, null);
+    }
+    
+    public void GetAClientesAsync(int tipo, object userState)
+    {
+        if ((this.onBeginGetAClientesDelegate == null))
+        {
+            this.onBeginGetAClientesDelegate = new BeginOperationDelegate(this.OnBeginGetAClientes);
+        }
+        if ((this.onEndGetAClientesDelegate == null))
+        {
+            this.onEndGetAClientesDelegate = new EndOperationDelegate(this.OnEndGetAClientes);
+        }
+        if ((this.onGetAClientesCompletedDelegate == null))
+        {
+            this.onGetAClientesCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetAClientesCompleted);
+        }
+        base.InvokeAsync(this.onBeginGetAClientesDelegate, new object[] {
+                    tipo}, this.onEndGetAClientesDelegate, this.onGetAClientesCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult Isac.BeginverificaCliente(verificaClienteRequest request, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginverificaCliente(request, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    private System.IAsyncResult BeginverificaCliente(string verif, System.AsyncCallback callback, object asyncState)
+    {
+        verificaClienteRequest inValue = new verificaClienteRequest();
+        inValue.Body = new verificaClienteRequestBody();
+        inValue.Body.verif = verif;
+        return ((Isac)(this)).BeginverificaCliente(inValue, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    verificaClienteResponse Isac.EndverificaCliente(System.IAsyncResult result)
+    {
+        return base.Channel.EndverificaCliente(result);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    private bool EndverificaCliente(System.IAsyncResult result)
+    {
+        verificaClienteResponse retVal = ((Isac)(this)).EndverificaCliente(result);
+        return retVal.Body.verificaClienteResult;
+    }
+    
+    private System.IAsyncResult OnBeginverificaCliente(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        string verif = ((string)(inValues[0]));
+        return this.BeginverificaCliente(verif, callback, asyncState);
+    }
+    
+    private object[] OnEndverificaCliente(System.IAsyncResult result)
+    {
+        bool retVal = this.EndverificaCliente(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnverificaClienteCompleted(object state)
+    {
+        if ((this.verificaClienteCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.verificaClienteCompleted(this, new verificaClienteCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void verificaClienteAsync(string verif)
+    {
+        this.verificaClienteAsync(verif, null);
+    }
+    
+    public void verificaClienteAsync(string verif, object userState)
+    {
+        if ((this.onBeginverificaClienteDelegate == null))
+        {
+            this.onBeginverificaClienteDelegate = new BeginOperationDelegate(this.OnBeginverificaCliente);
+        }
+        if ((this.onEndverificaClienteDelegate == null))
+        {
+            this.onEndverificaClienteDelegate = new EndOperationDelegate(this.OnEndverificaCliente);
+        }
+        if ((this.onverificaClienteCompletedDelegate == null))
+        {
+            this.onverificaClienteCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnverificaClienteCompleted);
+        }
+        base.InvokeAsync(this.onBeginverificaClienteDelegate, new object[] {
+                    verif}, this.onEndverificaClienteDelegate, this.onverificaClienteCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult Isac.BeginGetMesDatos(GetMesDatosRequest request, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginGetMesDatos(request, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    private System.IAsyncResult BeginGetMesDatos(int tipo, System.AsyncCallback callback, object asyncState)
+    {
+        GetMesDatosRequest inValue = new GetMesDatosRequest();
+        inValue.Body = new GetMesDatosRequestBody();
+        inValue.Body.tipo = tipo;
+        return ((Isac)(this)).BeginGetMesDatos(inValue, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    GetMesDatosResponse Isac.EndGetMesDatos(System.IAsyncResult result)
+    {
+        return base.Channel.EndGetMesDatos(result);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    private string EndGetMesDatos(System.IAsyncResult result)
+    {
+        GetMesDatosResponse retVal = ((Isac)(this)).EndGetMesDatos(result);
+        return retVal.Body.GetMesDatosResult;
+    }
+    
+    private System.IAsyncResult OnBeginGetMesDatos(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        int tipo = ((int)(inValues[0]));
+        return this.BeginGetMesDatos(tipo, callback, asyncState);
+    }
+    
+    private object[] OnEndGetMesDatos(System.IAsyncResult result)
+    {
+        string retVal = this.EndGetMesDatos(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnGetMesDatosCompleted(object state)
+    {
+        if ((this.GetMesDatosCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.GetMesDatosCompleted(this, new GetMesDatosCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void GetMesDatosAsync(int tipo)
+    {
+        this.GetMesDatosAsync(tipo, null);
+    }
+    
+    public void GetMesDatosAsync(int tipo, object userState)
+    {
+        if ((this.onBeginGetMesDatosDelegate == null))
+        {
+            this.onBeginGetMesDatosDelegate = new BeginOperationDelegate(this.OnBeginGetMesDatos);
+        }
+        if ((this.onEndGetMesDatosDelegate == null))
+        {
+            this.onEndGetMesDatosDelegate = new EndOperationDelegate(this.OnEndGetMesDatos);
+        }
+        if ((this.onGetMesDatosCompletedDelegate == null))
+        {
+            this.onGetMesDatosCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetMesDatosCompleted);
+        }
+        base.InvokeAsync(this.onBeginGetMesDatosDelegate, new object[] {
+                    tipo}, this.onEndGetMesDatosDelegate, this.onGetMesDatosCompletedDelegate, userState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    System.IAsyncResult Isac.BeginGetDiaDatos(GetDiaDatosRequest request, System.AsyncCallback callback, object asyncState)
+    {
+        return base.Channel.BeginGetDiaDatos(request, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    private System.IAsyncResult BeginGetDiaDatos(int tipo, System.AsyncCallback callback, object asyncState)
+    {
+        GetDiaDatosRequest inValue = new GetDiaDatosRequest();
+        inValue.Body = new GetDiaDatosRequestBody();
+        inValue.Body.tipo = tipo;
+        return ((Isac)(this)).BeginGetDiaDatos(inValue, callback, asyncState);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    GetDiaDatosResponse Isac.EndGetDiaDatos(System.IAsyncResult result)
+    {
+        return base.Channel.EndGetDiaDatos(result);
+    }
+    
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    private string EndGetDiaDatos(System.IAsyncResult result)
+    {
+        GetDiaDatosResponse retVal = ((Isac)(this)).EndGetDiaDatos(result);
+        return retVal.Body.GetDiaDatosResult;
+    }
+    
+    private System.IAsyncResult OnBeginGetDiaDatos(object[] inValues, System.AsyncCallback callback, object asyncState)
+    {
+        int tipo = ((int)(inValues[0]));
+        return this.BeginGetDiaDatos(tipo, callback, asyncState);
+    }
+    
+    private object[] OnEndGetDiaDatos(System.IAsyncResult result)
+    {
+        string retVal = this.EndGetDiaDatos(result);
+        return new object[] {
+                retVal};
+    }
+    
+    private void OnGetDiaDatosCompleted(object state)
+    {
+        if ((this.GetDiaDatosCompleted != null))
+        {
+            InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+            this.GetDiaDatosCompleted(this, new GetDiaDatosCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+        }
+    }
+    
+    public void GetDiaDatosAsync(int tipo)
+    {
+        this.GetDiaDatosAsync(tipo, null);
+    }
+    
+    public void GetDiaDatosAsync(int tipo, object userState)
+    {
+        if ((this.onBeginGetDiaDatosDelegate == null))
+        {
+            this.onBeginGetDiaDatosDelegate = new BeginOperationDelegate(this.OnBeginGetDiaDatos);
+        }
+        if ((this.onEndGetDiaDatosDelegate == null))
+        {
+            this.onEndGetDiaDatosDelegate = new EndOperationDelegate(this.OnEndGetDiaDatos);
+        }
+        if ((this.onGetDiaDatosCompletedDelegate == null))
+        {
+            this.onGetDiaDatosCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDiaDatosCompleted);
+        }
+        base.InvokeAsync(this.onBeginGetDiaDatosDelegate, new object[] {
+                    tipo}, this.onEndGetDiaDatosDelegate, this.onGetDiaDatosCompletedDelegate, userState);
     }
     
     private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState)
@@ -5340,6 +6541,21 @@ public partial class IsacClient : System.ServiceModel.ClientBase<Isac>, Isac
             return _result;
         }
         
+        public System.IAsyncResult BeginExportaRepUsr(ExportaRepUsrRequest request, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = request;
+            System.IAsyncResult _result = base.BeginInvoke("ExportaRepUsr", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public ExportaRepUsrResponse EndExportaRepUsr(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            ExportaRepUsrResponse _result = ((ExportaRepUsrResponse)(base.EndInvoke("ExportaRepUsr", _args, result)));
+            return _result;
+        }
+        
         public System.IAsyncResult BeginEnviaReporteConciliacion(EnviaReporteConciliacionRequest request, System.AsyncCallback callback, object asyncState)
         {
             object[] _args = new object[1];
@@ -5352,6 +6568,94 @@ public partial class IsacClient : System.ServiceModel.ClientBase<Isac>, Isac
         {
             object[] _args = new object[0];
             EnviaReporteConciliacionResponse _result = ((EnviaReporteConciliacionResponse)(base.EndInvoke("EnviaReporteConciliacion", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginEnviaReporteUsuarios(System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[0];
+            System.IAsyncResult _result = base.BeginInvoke("EnviaReporteUsuarios", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public void EndEnviaReporteUsuarios(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            base.EndInvoke("EnviaReporteUsuarios", _args, result);
+        }
+        
+        public System.IAsyncResult BeginGetUsers(GetUsersRequest request, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = request;
+            System.IAsyncResult _result = base.BeginInvoke("GetUsers", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public GetUsersResponse EndGetUsers(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            GetUsersResponse _result = ((GetUsersResponse)(base.EndInvoke("GetUsers", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginGetAClientes(GetAClientesRequest request, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = request;
+            System.IAsyncResult _result = base.BeginInvoke("GetAClientes", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public GetAClientesResponse EndGetAClientes(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            GetAClientesResponse _result = ((GetAClientesResponse)(base.EndInvoke("GetAClientes", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginverificaCliente(verificaClienteRequest request, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = request;
+            System.IAsyncResult _result = base.BeginInvoke("verificaCliente", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public verificaClienteResponse EndverificaCliente(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            verificaClienteResponse _result = ((verificaClienteResponse)(base.EndInvoke("verificaCliente", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginGetMesDatos(GetMesDatosRequest request, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = request;
+            System.IAsyncResult _result = base.BeginInvoke("GetMesDatos", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public GetMesDatosResponse EndGetMesDatos(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            GetMesDatosResponse _result = ((GetMesDatosResponse)(base.EndInvoke("GetMesDatos", _args, result)));
+            return _result;
+        }
+        
+        public System.IAsyncResult BeginGetDiaDatos(GetDiaDatosRequest request, System.AsyncCallback callback, object asyncState)
+        {
+            object[] _args = new object[1];
+            _args[0] = request;
+            System.IAsyncResult _result = base.BeginInvoke("GetDiaDatos", _args, callback, asyncState);
+            return _result;
+        }
+        
+        public GetDiaDatosResponse EndGetDiaDatos(System.IAsyncResult result)
+        {
+            object[] _args = new object[0];
+            GetDiaDatosResponse _result = ((GetDiaDatosResponse)(base.EndInvoke("GetDiaDatos", _args, result)));
             return _result;
         }
     }

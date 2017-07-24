@@ -188,6 +188,14 @@ namespace MasTicket
 						json = App.WSc.GetCatalogo(13, "where idusuario = " + usr.idusuario.ToString());
 						List<RecargaProg> lrp = JsonConvert.DeserializeObject<List<RecargaProg>>(json);
 						db.DescargaRecargasProg(lrp);
+                        json = "";
+                        json = App.WSc.GetMsgReferidosPUsr(App.usr.idusuario);
+                        msgreferidos msg = JsonConvert.DeserializeObject<List<msgreferidos>>(json).FirstOrDefault();
+                        App.db.AltaMsgRef(msg);
+						json = "";
+                        json = App.WSc.GetMsgReferidosPRef(App.usr.idusuario);
+						msg = JsonConvert.DeserializeObject<List<msgreferidos>>(json).FirstOrDefault();
+						App.db.AltaMsgRef(msg);
 					}
 
 					UserDialogs.Instance.HideLoading();
@@ -383,6 +391,14 @@ namespace MasTicket
 								json = App.WSc.GetCatalogo(13, "where idusuario = " + usr.idusuario.ToString());
 								List<RecargaProg> lrp = JsonConvert.DeserializeObject<List<RecargaProg>>(json);
 								db.DescargaRecargasProg(lrp);
+								json = "";
+								json = App.WSc.GetMsgReferidosPUsr(App.usr.idusuario);
+								msgreferidos msg = JsonConvert.DeserializeObject<List<msgreferidos>>(json).FirstOrDefault();
+								App.db.AltaMsgRef(msg);
+								json = "";
+								json = App.WSc.GetMsgReferidosPRef(App.usr.idusuario);
+								msg = JsonConvert.DeserializeObject<List<msgreferidos>>(json).FirstOrDefault();
+								App.db.AltaMsgRef(msg);
 
 								var nva = App.Nav.NavigationStack.OfType<NuevaTarjeta>().FirstOrDefault();
 								if (nva != null)

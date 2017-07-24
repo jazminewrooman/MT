@@ -124,4 +124,9 @@ namespace MasTicket
 		public string emisor { get; set; }
 	}
 
+    public class msgreferidos{
+        public decimal saldo { get; set; }
+        public string msg { get; set; }
+    }
+
 }

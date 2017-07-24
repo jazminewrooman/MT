@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:plugin="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
@@ -33,6 +33,8 @@
 	            <RowDefinition Height="15"/>
 	            <RowDefinition Height="38"/>
 	            <RowDefinition Height="15"/>
+                <RowDefinition Height="38"/>
+                <RowDefinition Height="15"/>
 	            <RowDefinition />
 	          </Grid.RowDefinitions>
 	          <Grid.ColumnDefinitions>
@@ -82,8 +84,12 @@
 	          <Label Grid.Row="9" Grid.Column="2" x:Name="lblvalNip" Text="El nip es obligatorio y ambos deben ser iguales" Style="{DynamicResource LabelErrorEntry}" />
 	          
 	          <local:VwCambiarPais x:Name="cvwPais" Grid.Row="10" Grid.Column="2" />
-						
-			  <StackLayout Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+
+              <Entry x:Name="txtCodigo" Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="2" Placeholder="Codigo promocional">
+                <local:MaxLengthValidator MaxLength="8"/>
+              </Entry>
+                        
+			  <StackLayout Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
 				<Label HorizontalTextAlignment="Center" Text="Al hacer click en Aceptar usted acepta la " TextColor="Black" FontSize="10" />
 				<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
 					<Label x:Name="lblPoliticas" Text="politica de privacidad" TextColor="Purple" FontSize="10" />

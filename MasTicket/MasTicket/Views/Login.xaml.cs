@@ -212,6 +212,14 @@ namespace MasTicket
 								json = App.WSc.GetCatalogo(13, "where idusuario = " + App.usr.idusuario.ToString());
 								List<RecargaProg> lrp = JsonConvert.DeserializeObject<List<RecargaProg>>(json);
 								App.db.DescargaRecargasProg(lrp);
+								json = "";
+								json = App.WSc.GetMsgReferidosPUsr(App.usr.idusuario);
+								msgreferidos msg = JsonConvert.DeserializeObject<List<msgreferidos>>(json).FirstOrDefault();
+								App.db.AltaMsgRef(msg);
+								json = "";
+								json = App.WSc.GetMsgReferidosPRef(App.usr.idusuario);
+								msg = JsonConvert.DeserializeObject<List<msgreferidos>>(json).FirstOrDefault();
+								App.db.AltaMsgRef(msg);
 
 								//cerro sesion, y ahora entra, si no existe en db local debo dar de alta
 								if (App.db.SelUsr(App.usr.email) == null)

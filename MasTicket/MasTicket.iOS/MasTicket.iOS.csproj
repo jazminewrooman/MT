@@ -26,9 +26,9 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignKey>iPhone Developer: Jazmine VB (ZVYDJC9779)</CodesignKey>
+    <CodesignKey>iPhone Developer: Jacobo Becerra Schulz (2VRU6G7ND2)</CodesignKey>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <CodesignProvision>iOS Team Provisioning Profile: com.corit.asicompras</CodesignProvision>
+    <CodesignProvision>DevAsiCompras</CodesignProvision>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">

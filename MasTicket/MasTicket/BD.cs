@@ -56,6 +56,7 @@ namespace MasTicket
 			database.CreateTable<catOperadora>();
 			database.CreateTable<catPaquete>();
 			database.CreateTable<catErrores>();
+            database.CreateTable<msgreferidos>();
 
 			if (database.Table<SaldoMonedero>().Count() == 0)
 			{
@@ -73,6 +74,17 @@ namespace MasTicket
 		}
 
 		#region catalogos
+        //---------------------------------------------------------------
+        public void AltaMsgRef(msgreferidos msg){
+            database.Insert(msg);
+        }
+        public msgreferidos SelectMsgRef(){
+            return(database.Table<msgreferidos>().FirstOrDefault());
+        }
+        public void BorraMsgRef(){
+            database.DeleteAll<msgreferidos>();
+        }
+		//---------------------------------------------------------------
 		public void AltaConfig(catConfig item)
 		{
 			lock (locker)

@@ -31,7 +31,7 @@ namespace MasTicket
             txtNum.Text = "";
         }
 
-		protected override void OnAppearing()
+		protected async override void OnAppearing()
 		{
 			if (rvm.EsIncompleta())
 				btnAplicar.IsEnabled = false;
@@ -45,6 +45,13 @@ namespace MasTicket
 
 			if (lsC.Count == 0 && vwContactos != null)
 				lsC = vwContactos.GetLista();
+
+            msgreferidos msg = App.db.SelectMsgRef();
+            if (msg != null)
+            {
+                await DisplayAlert("Aviso", msg.msg, "OK");
+                App.db.BorraMsgRef();
+            }
 
 			base.OnAppearing();
 		}

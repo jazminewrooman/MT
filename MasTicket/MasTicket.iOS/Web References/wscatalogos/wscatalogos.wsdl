@@ -83,6 +83,48 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ExisteCodigoReferidoUsr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExisteCodigoReferidoUsrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExisteCodigoReferidoUsrResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMsgReferidosPUsr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idusr" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMsgReferidosPUsrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMsgReferidosPUsrResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMsgReferidosPRef">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idref" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMsgReferidosPRefResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMsgReferidosPRefResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetMontoMaxSoapIn">
@@ -121,6 +163,24 @@
   <wsdl:message name="GetCodigoReferidoUsrSoapOut">
     <wsdl:part name="parameters" element="tns:GetCodigoReferidoUsrResponse" />
   </wsdl:message>
+  <wsdl:message name="ExisteCodigoReferidoUsrSoapIn">
+    <wsdl:part name="parameters" element="tns:ExisteCodigoReferidoUsr" />
+  </wsdl:message>
+  <wsdl:message name="ExisteCodigoReferidoUsrSoapOut">
+    <wsdl:part name="parameters" element="tns:ExisteCodigoReferidoUsrResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMsgReferidosPUsrSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMsgReferidosPUsr" />
+  </wsdl:message>
+  <wsdl:message name="GetMsgReferidosPUsrSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMsgReferidosPUsrResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMsgReferidosPRefSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMsgReferidosPRef" />
+  </wsdl:message>
+  <wsdl:message name="GetMsgReferidosPRefSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMsgReferidosPRefResponse" />
+  </wsdl:message>
   <wsdl:portType name="wscatalogosSoap">
     <wsdl:operation name="GetMontoMax">
       <wsdl:input message="tns:GetMontoMaxSoapIn" />
@@ -145,6 +205,18 @@
     <wsdl:operation name="GetCodigoReferidoUsr">
       <wsdl:input message="tns:GetCodigoReferidoUsrSoapIn" />
       <wsdl:output message="tns:GetCodigoReferidoUsrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteCodigoReferidoUsr">
+      <wsdl:input message="tns:ExisteCodigoReferidoUsrSoapIn" />
+      <wsdl:output message="tns:ExisteCodigoReferidoUsrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMsgReferidosPUsr">
+      <wsdl:input message="tns:GetMsgReferidosPUsrSoapIn" />
+      <wsdl:output message="tns:GetMsgReferidosPUsrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMsgReferidosPRef">
+      <wsdl:input message="tns:GetMsgReferidosPRefSoapIn" />
+      <wsdl:output message="tns:GetMsgReferidosPRefSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="wscatalogosSoap" type="tns:wscatalogosSoap">
@@ -203,6 +275,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ExisteCodigoReferidoUsr">
+      <soap:operation soapAction="http://tempuri.org/ExisteCodigoReferidoUsr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMsgReferidosPUsr">
+      <soap:operation soapAction="http://tempuri.org/GetMsgReferidosPUsr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMsgReferidosPRef">
+      <soap:operation soapAction="http://tempuri.org/GetMsgReferidosPRef" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="wscatalogosSoap12" type="tns:wscatalogosSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -253,6 +352,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetCodigoReferidoUsr">
       <soap12:operation soapAction="http://tempuri.org/GetCodigoReferidoUsr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteCodigoReferidoUsr">
+      <soap12:operation soapAction="http://tempuri.org/ExisteCodigoReferidoUsr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMsgReferidosPUsr">
+      <soap12:operation soapAction="http://tempuri.org/GetMsgReferidosPUsr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMsgReferidosPRef">
+      <soap12:operation soapAction="http://tempuri.org/GetMsgReferidosPRef" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
