@@ -188,6 +188,7 @@ namespace MasTicket
 						json = App.WSc.GetCatalogo(13, "where idusuario = " + usr.idusuario.ToString());
 						List<RecargaProg> lrp = JsonConvert.DeserializeObject<List<RecargaProg>>(json);
 						db.DescargaRecargasProg(lrp);
+                        // Se bajan los msgs si hay recargas a monedero x referidos
                         json = "";
                         json = App.WSc.GetMsgReferidosPUsr(App.usr.idusuario);
                         msgreferidos msg = JsonConvert.DeserializeObject<List<msgreferidos>>(json).FirstOrDefault();

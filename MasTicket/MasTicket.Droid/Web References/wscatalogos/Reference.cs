@@ -36,6 +36,12 @@ namespace MasTicket.wscatalogos {
         
         private System.Threading.SendOrPostCallback GetCodigoReferidoUsrOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ExisteCodigoReferidoUsrOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetMsgReferidosPUsrOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetMsgReferidosPRefOperationCompleted;
+        
         /// CodeRemarks
         public wscatalogos() {
             this.Url = "https://asicompras.com/wsac/wscatalogos.asmx";
@@ -62,6 +68,15 @@ namespace MasTicket.wscatalogos {
         
         /// CodeRemarks
         public event GetCodigoReferidoUsrCompletedEventHandler GetCodigoReferidoUsrCompleted;
+        
+        /// CodeRemarks
+        public event ExisteCodigoReferidoUsrCompletedEventHandler ExisteCodigoReferidoUsrCompleted;
+        
+        /// CodeRemarks
+        public event GetMsgReferidosPUsrCompletedEventHandler GetMsgReferidosPUsrCompleted;
+        
+        /// CodeRemarks
+        public event GetMsgReferidosPRefCompletedEventHandler GetMsgReferidosPRefCompleted;
         
         /// CodeRemarks
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetMontoMax", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -244,6 +259,93 @@ namespace MasTicket.wscatalogos {
         }
         
         /// CodeRemarks
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExisteCodigoReferidoUsr", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int ExisteCodigoReferidoUsr(string codigo) {
+            object[] results = this.Invoke("ExisteCodigoReferidoUsr", new object[] {
+                        codigo});
+            return ((int)(results[0]));
+        }
+        
+        /// CodeRemarks
+        public void ExisteCodigoReferidoUsrAsync(string codigo) {
+            this.ExisteCodigoReferidoUsrAsync(codigo, null);
+        }
+        
+        /// CodeRemarks
+        public void ExisteCodigoReferidoUsrAsync(string codigo, object userState) {
+            if ((this.ExisteCodigoReferidoUsrOperationCompleted == null)) {
+                this.ExisteCodigoReferidoUsrOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExisteCodigoReferidoUsrOperationCompleted);
+            }
+            this.InvokeAsync("ExisteCodigoReferidoUsr", new object[] {
+                        codigo}, this.ExisteCodigoReferidoUsrOperationCompleted, userState);
+        }
+        
+        private void OnExisteCodigoReferidoUsrOperationCompleted(object arg) {
+            if ((this.ExisteCodigoReferidoUsrCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExisteCodigoReferidoUsrCompleted(this, new ExisteCodigoReferidoUsrCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// CodeRemarks
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetMsgReferidosPUsr", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetMsgReferidosPUsr(int idusr) {
+            object[] results = this.Invoke("GetMsgReferidosPUsr", new object[] {
+                        idusr});
+            return ((string)(results[0]));
+        }
+        
+        /// CodeRemarks
+        public void GetMsgReferidosPUsrAsync(int idusr) {
+            this.GetMsgReferidosPUsrAsync(idusr, null);
+        }
+        
+        /// CodeRemarks
+        public void GetMsgReferidosPUsrAsync(int idusr, object userState) {
+            if ((this.GetMsgReferidosPUsrOperationCompleted == null)) {
+                this.GetMsgReferidosPUsrOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetMsgReferidosPUsrOperationCompleted);
+            }
+            this.InvokeAsync("GetMsgReferidosPUsr", new object[] {
+                        idusr}, this.GetMsgReferidosPUsrOperationCompleted, userState);
+        }
+        
+        private void OnGetMsgReferidosPUsrOperationCompleted(object arg) {
+            if ((this.GetMsgReferidosPUsrCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetMsgReferidosPUsrCompleted(this, new GetMsgReferidosPUsrCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// CodeRemarks
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetMsgReferidosPRef", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetMsgReferidosPRef(int idref) {
+            object[] results = this.Invoke("GetMsgReferidosPRef", new object[] {
+                        idref});
+            return ((string)(results[0]));
+        }
+        
+        /// CodeRemarks
+        public void GetMsgReferidosPRefAsync(int idref) {
+            this.GetMsgReferidosPRefAsync(idref, null);
+        }
+        
+        /// CodeRemarks
+        public void GetMsgReferidosPRefAsync(int idref, object userState) {
+            if ((this.GetMsgReferidosPRefOperationCompleted == null)) {
+                this.GetMsgReferidosPRefOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetMsgReferidosPRefOperationCompleted);
+            }
+            this.InvokeAsync("GetMsgReferidosPRef", new object[] {
+                        idref}, this.GetMsgReferidosPRefOperationCompleted, userState);
+        }
+        
+        private void OnGetMsgReferidosPRefOperationCompleted(object arg) {
+            if ((this.GetMsgReferidosPRefCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetMsgReferidosPRefCompleted(this, new GetMsgReferidosPRefCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// CodeRemarks
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -392,6 +494,84 @@ namespace MasTicket.wscatalogos {
         private object[] results;
         
         internal GetCodigoReferidoUsrCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// CodeRemarks
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// CodeRemarks
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.0.1.24")]
+    public delegate void ExisteCodigoReferidoUsrCompletedEventHandler(object sender, ExisteCodigoReferidoUsrCompletedEventArgs e);
+    
+    /// CodeRemarks
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.0.1.24")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ExisteCodigoReferidoUsrCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ExisteCodigoReferidoUsrCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// CodeRemarks
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// CodeRemarks
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.0.1.24")]
+    public delegate void GetMsgReferidosPUsrCompletedEventHandler(object sender, GetMsgReferidosPUsrCompletedEventArgs e);
+    
+    /// CodeRemarks
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.0.1.24")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetMsgReferidosPUsrCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetMsgReferidosPUsrCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// CodeRemarks
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// CodeRemarks
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.0.1.24")]
+    public delegate void GetMsgReferidosPRefCompletedEventHandler(object sender, GetMsgReferidosPRefCompletedEventArgs e);
+    
+    /// CodeRemarks
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "7.0.1.24")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetMsgReferidosPRefCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetMsgReferidosPRefCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

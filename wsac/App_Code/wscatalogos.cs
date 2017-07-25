@@ -18,7 +18,7 @@ public class wscatalogos : System.Web.Services.WebService
     public wscatalogos()
     {
         s = new sac();
-        
+
     }
 
     [WebMethod]
@@ -28,7 +28,7 @@ public class wscatalogos : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public decimal GetMonederoHab()
+    public int GetMonederoHab()
     {
         return (s.GetMonederoHab());
     }
@@ -50,9 +50,30 @@ public class wscatalogos : System.Web.Services.WebService
     {
         return (s.GetCatalogo(idcatalogo, where));
     }
-    //[WebMethod]
-    //public int GetPrueb()
-    //{
-    //    return 1;
-    //}
+
+    [WebMethod]
+    public string GetCodigoReferidoUsr(int idusr)
+    {
+        return (s.GetCodigoReferidoUsr(idusr));
+    }
+
+    [WebMethod]
+    public int ExisteCodigoReferidoUsr(string codigo)
+    {
+        return (s.ExisteCodigoReferidoUsr(codigo));
+    }
+
+    [WebMethod]
+    public string GetMsgReferidosPUsr(int idusr)
+    {
+        return s.GetMsgReferidosPUsr(idusr);
+    }
+
+	[WebMethod]
+	public string GetMsgReferidosPRef(int idref)
+	{
+		return s.GetMsgReferidosPRef(idref);
+	}
+
+
 }
