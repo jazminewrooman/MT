@@ -764,7 +764,7 @@ public class sac : Isac
 						Usuario u = LlenaUsr(idusr);
                         EnviaMail(u.email, 'F', "", u, msg: "Por usar el codigo promocional de uno de tus amigos, se te ha abonado credito, disponible en tu monedero!");
 						ws.getSN("dragonballZ@", "wsM00n", "ws4d1mnt43@", u.numerocontacto, "Por usar el codigo promocional de uno de tus amigos, se te ha abonado credito, disponible en tu monedero!");
-                        Task.Delay(TimeSpan.FromMilliseconds(200));
+                        Task.Delay(TimeSpan.FromMilliseconds(500));
                         u = LlenaUsr(idref);
 						EnviaMail(u.email, 'F', "", u, msg: "Uno de tus amigos recargo exitosamente, con lo cual te has ganado crédito, disponible en tu monedero!");
 						ws.getSN("dragonballZ@", "wsM00n", "ws4d1mnt43@", u.numerocontacto, "Uno de tus amigos recargo exitosamente, con lo cual te has ganado crédito, disponible en tu monedero!");
